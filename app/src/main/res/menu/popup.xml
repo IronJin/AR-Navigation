@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    //목적지 설정 버튼 팝업 메뉴 설정
+    <item
+        android:id="@+id/action_menu1"
+        android:title="제 1공학관"/>
+    <item
+        android:id="@+id/action_menu2"
+        android:title="제 2공학관" />
+    <item
+        android:id="@+id/action_menu3"
+        android:title="제 3공학관" />
+
+    <item
+        android:id="@+id/action_menu4"
+        android:title="사회과학관" />
+
+    <item
+        android:id="@+id/action_menu5"
+        android:title="소프트웨어 ICT관" />
+
+    <item
+        android:id="@+id/action_menu6"
+        android:title="미디어센터" />
+
+    <item
+        android:id="@+id/action_menu7"
+        android:title="범정관" />
+
+    <item
+        android:id="@+id/action_menu8"
+        android:title="인문관" />
+
+    <item
+        android:id="@+id/action_menu9"
+        android:title="상경관" />
+
+    <item
+        android:id="@+id/action_menu10"
+        android:title="사범관" />
+
+    <item
+        android:id="@+id/action_menu11"
+        android:title="혜당관" />
+
+    <item
+        android:id="@+id/action_menu12"
+        android:title="퇴계기념중앙도서관" />
+
+    <item
+        android:id="@+id/action_menu13"
+        android:title="법학관, 대학원동" />
+
+    <item
+        android:id="@+id/action_menu14"
+        android:title="국제관" />
+
+    <item
+        android:id="@+id/action_menu15"
+        android:title="종합실험동" />
+
+    <item
+        android:id="@+id/action_menu16"
+        android:title="곰상" />
+
+    <item
+        android:id="@+id/action_menu17"
+        android:title="정문" />
+
+    <item
+        android:id="@+id/action_menu18"
+        android:title="체육관" />
+
+    <item
+        android:id="@+id/action_menu19"
+        android:title="대운동장" />
+
+    <item
+        android:id="@+id/action_menu20"
+        android:title="무용관" />
+
+    <item
+        android:id="@+id/action_menu21"
+        android:title="진리관" />
+
+    <item
+        android:id="@+id/action_menu22"
+        android:title="웅비홀" />
+
+    <item
+        android:id="@+id/action_menu23"
+        android:title="집현재" />
+
+    <item
+        android:id="@+id/action_menu24"
+        android:title="죽전치과병원" />
+
+    <item
+        android:id="@+id/action_menu25"
+        android:title="노천마당, 풋살장" />
+
+    <item
+        android:id="@+id/action_menu26"
+        android:title="음악관" />
+
+    <item
+        android:id="@+id/action_menu27"
+        android:title="미술관" />
+
+    <item
+        android:id="@+id/action_menu28"
+        android:title="폭포공원" />
+
+</menu>

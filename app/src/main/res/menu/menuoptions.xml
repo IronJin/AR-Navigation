@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    //앱 상태바 메뉴 옵션
+    <item android:title="언어설정"
+        android:id="@+id/menu1"/>
+
+    <item
+        android:title="캠퍼스맵"
+        android:id="@+id/menu2" />
+</menu>
