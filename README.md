@@ -15,7 +15,7 @@
  * 개선방안
 
 
-
+---
 
 # 어플소개
 DK GUIDE 는 학교지리에 익숙치 않은 사용자를 위한 네비게이션 기반 앱으로써
@@ -29,7 +29,7 @@ AR 애니메이션 캐릭터를 통해 음성으로 얻을 수 있다.
 참고 : https://docs.mapbox.com/help/tutorials/android-navigation-sdk/
 
 
-
+---
 
 # 안드로이드 스튜디오
 ## 로그인 화면 & 회원가입 화면
@@ -937,7 +937,7 @@ class MainActivityLocationCallback implements LocationEngineCallback<LocationEng
 ```
 enableLocationComponent(style);
 ```
-
+---
 # 유니티
 ## 안드로이드와 연동
 ## AR을 활용한 방향 표시
