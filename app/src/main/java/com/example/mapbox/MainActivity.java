@@ -1,7 +1,12 @@
+/*
+작성자 : 양철진
+수정일 : 2021.06.29
+ */
 
 package com.example.mapbox;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
@@ -23,6 +28,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 // classes needed to initialize map
+import com.google.firebase.auth.FirebaseAuth;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineCallback;
 import com.mapbox.android.core.location.LocationEngineProvider;
@@ -92,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String ICON_SOURCE_ID = "icon-source-id";
     private static final String RED_PIN_ICON_ID = "red-pin-icon-id";
 
+    //firebase 관련
+    private FirebaseAuth mFirebaseAuth;
+
     // variables for adding location layer
     private MapView mapView;
     private MapboxMap mapboxMap;
@@ -153,9 +162,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onStyleLoaded(@NonNull Style style) {
                 enableLocationComponent(style);
 
-                addDestinationIconSymbolLayer(style);
 
-                mapboxMap.addOnMapClickListener(MainActivity.this);
+                //addDestinationIconSymbolLayer(style);
+                //mapboxMap.addOnMapClickListener(MainActivity.this);
 
                 //start navigation 버튼 구현
                 //button id 이용해서 메인액티비티에 띄우는 것
@@ -457,12 +466,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+
     //맵클릭 활성화 되는 메소드
     //맵 클릭을 하지 않을시 이 메소드 자체를 비활성화 시키면 됨
     @SuppressWarnings( {"MissingPermission"})
     @Override
     public boolean onMapClick(@NonNull LatLng point) {
 
+        /*
         //클릭한 곳의 좌표
         destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
 
@@ -479,8 +490,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         button.setEnabled(true);
         button.setBackgroundResource(R.color.mapboxBlue);
+        */
         return false;
     }
+
 
 
     //내 위치와 목적지 사이의 루트를 구해주는 함수
@@ -526,6 +539,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
+    //User 의 위치를 나타내주는 메소드
     @SuppressWarnings( {"MissingPermission"})
     private void enableLocationComponent(@NonNull Style loadedMapStyle) {
         // Check if permissions are enabled and if not request
@@ -651,8 +665,22 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     //클릭 이벤트 처리
     //메뉴 클릭시 선택한 메뉴를 호출하게 하는 메소드
     public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.logout:
 
+                mFirebaseAuth.signOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                Toast.makeText(MainActivity.this,"로그아웃 되었습니다", Toast.LENGTH_SHORT).show();
+
+        }
         return false;
+    }
+
+    //뒤로가기 버튼을 막아서 로그인 화면으로 넘어가는 오류를 해결
+    @Override
+    public void onBackPressed(){
+        //super.onBackPressed();
     }
 
     @Override

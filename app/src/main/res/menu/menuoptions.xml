@@ -8,4 +8,8 @@
     <item
         android:title="캠퍼스맵"
         android:id="@+id/menu2" />
+
+    <item
+        android:title="로그아웃"
+        android:id="@+id/logout"/>
 </menu>
