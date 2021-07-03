@@ -1,17 +1,21 @@
 # 목차
 * 어플소개
 * 안드로이드 스튜디오
-  * splash 화면설정(loading 화면)
-  * MAPBOX
-  * MAPBOX SDK 및 MAPBOX 네비게이션 SDK 설치 방법
+  * 로그인 화면
+	  * Firebase 연동
+	  * 회원가입 화면 구성
+	  * 로그인 화면 구성
+	  * 사용자 정보 모델 클래스
+  * 맵박스 SDK 설치
   * getRoute 메소드
   * 목적지 설정 방법
-  * 사용자 위치 표시 방법
 * 유니티
   * 안드로이드 연동
   * AR
  * 개선방안
----
+
+
+
 
 # 어플소개
 DK GUIDE 는 학교지리에 익숙치 않은 사용자를 위한 네비게이션 기반 앱으로써
@@ -24,28 +28,360 @@ AR 애니메이션 캐릭터를 통해 음성으로 얻을 수 있다.
 맵박스에서 제공하는 튜토리얼을 중심으로 제작되었다.
 참고 : https://docs.mapbox.com/help/tutorials/android-navigation-sdk/
 
----
+
 
 
 # 안드로이드 스튜디오
-AR 을 활용하기전 기본적인 네비게이션 기능을 구현하기 위해 안드로이드 스튜디오와 맵박스를 활용하였다.
-##  0.SPLASH-ACTIVITY
-어플이 시작되고 2-3초 정도의 로딩화면을 띄움으로써 어플이 시작되고있음을 알린다.
+## 로그인 화면 & 회원가입 화면
+Firebase 를 이용하여 이메일 회원가입 & 로그인 기능 구현  
 
+로그인이나 회원가입 정보를 관리하기 위해 서버 구축을 해야하지만 Firebase 란 서버 구축 과정을 건너띄고 자체적으로 만들어진 클라우드 서버를 빌려서 그곳에 데이터베이스로 회원가입과 로그인 과정을 간편하게 해주는 일련의 과정을 서포팅 해주는 클라우드 플랫폼이다. 
 
+### 1. Firebase 연동
+1. 안드로이드 스튜디오 내 Tools - firebase - Authenticate 를 통해 Authenticate using a custom authenticate system 을 클릭한 후 새 프로젝트를 생성한다.
+2. 안드로이드 스튜디오로 돌아와서 Add the Firebase Authentication SDK to your app 클릭 후 Firebase 관련 종속성을 추가해준다.
+3. Realtime database 에서  database 관련 테이블 공간을 생성해주기 위해 사진과 같이 규칙에서 다음과 같이 읽기 권한과 쓰기 권한을 true 설정을 통해 가져온다.  
 
-##  1. MAPBOX
+![image](https://user-images.githubusercontent.com/85132068/124363044-e4a06a00-dc73-11eb-82db-dc0bdcddde4e.png)
+
+4. Realtime database 종속성을 추가하기 위해 Add the realtime Database to your app 을 클릭하여준다.
+
+### 2. 회원가입 화면 구성
+1. RegisterActivity 라는 이름의 empty activity 를 생성해준 후 activity_register.xml 에서이메일과 비밀번호를 입력할 수 있는 EditText 와 가입자 정보를 데이터베이스에 전달해주는 '가입하기' 버튼을 화면에 추가해준다.
+```
+<?xml version="1.0" encoding="utf-8"?>  
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+  xmlns:app="http://schemas.android.com/apk/res-auto"  
+  xmlns:tools="http://schemas.android.com/tools"  
+  android:layout_width="match_parent"  
+  android:layout_height="match_parent"  
+  tools:context=".RegisterActivity">  
+  
+ <EditText  android:id="@+id/et_email"  
+  android:layout_width="300dp"  
+  android:layout_height="40dp"  
+  android:layout_marginTop="240dp"  
+  android:ems="10"  
+  android:hint="이메일을 입력하세요"  
+  android:inputType="textEmailAddress"  
+  app:layout_constraintEnd_toEndOf="parent"  
+  app:layout_constraintStart_toStartOf="parent"  
+  app:layout_constraintTop_toTopOf="parent" />  
+  
+ <EditText  android:id="@+id/et_pwd"  
+  android:layout_width="300dp"  
+  android:layout_height="40dp"  
+  android:layout_marginTop="32dp"  
+  android:ems="10"  
+  android:hint="비밀번호를 입력하세요.(6자리 이상)"  
+  android:inputType="textPassword"  
+  app:layout_constraintEnd_toEndOf="parent"  
+  app:layout_constraintHorizontal_bias="0.498"  
+  app:layout_constraintStart_toStartOf="parent"  
+  app:layout_constraintTop_toBottomOf="@+id/et_email" />  
+  
+ <Button  android:id="@+id/btn_register"  
+  android:layout_width="0dp"  
+  android:layout_height="wrap_content"  
+  android:text="회원가입"  
+  app:layout_constraintBottom_toBottomOf="parent"  
+  app:layout_constraintEnd_toEndOf="parent"  
+  app:layout_constraintStart_toStartOf="parent" />  
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+2. RegisterActivity 에서 회원가입과 관련한 Firebase 인증처리 서버에 연동시켜줄 수 있는 객체 회원가입 버튼이 클릭될 때의 옵션처리 등의 코드를 다음과 같이 추가해준다.
+회원가입에 성공할 시 로그인 화면으로 넘어가도록 설정되었다.
+```
+  
+private FirebaseAuth mFirebaseAuth; //Firebase 인증처리  
+private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체  
+private EditText mEtEmail, mEtPwd; //회원가입 입력필드  
+private Button mBtnRegister; //회원가입 버튼  
+  
+  
+  
+@Override  
+protected void onCreate(Bundle savedInstanceState) {  
+    super.onCreate(savedInstanceState);  
+  setContentView(R.layout.activity_register);  
+  
+  mFirebaseAuth = FirebaseAuth.getInstance(); //firebase 이용준비 끝  
+  mDatabaseRef = FirebaseDatabase.getInstance().getReference("mapbox");  
+  
+  mEtEmail = findViewById(R.id.et_email);  
+  mEtPwd = findViewById(R.id.et_pwd);  
+  mBtnRegister = findViewById(R.id.btn_register);    
+}
+```
+
+3.  회원가입 버튼 클릭 시 이벤트 처리를 위한 메소드를 onCreate 메소드에 추가해준다.
+```
+//회원가입 버튼이 클릭될때의 옵션처리  
+mBtnRegister.setOnClickListener(new View.OnClickListener() {  
+    @Override  
+  public void onClick(View v) {  
+        String strEmail = mEtEmail.getText().toString();  
+  String strPwd = mEtPwd.getText().toString();  
+  
+  //아무런 정보가 입력되지 않은 상태에서 버튼 클릭 시 오류가 뜨는 것을 방지  
+  if(strEmail.getBytes().length <=0 || strPwd.getBytes().length <=0){  
+            Toast.makeText(RegisterActivity.this ,"가입정보를 입력하세요.", Toast.LENGTH_SHORT).show();  
+  }else{  
+  
+        //FirebaseAuth 진행  
+  mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {  
+            @Override  
+  public void onComplete(@NotNull Task<AuthResult> task) {  
+                //회원가입이 이루어졌을때 처리  
+  if(task.isSuccessful()){  
+                    FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();  
+  UserAccount account = new UserAccount();  
+  account.setIdToken(firebaseUser.getUid());  
+  account.setEmailId(firebaseUser.getEmail());  
+  account.setPassword(strPwd);  
+  
+  //setValue 는 database에 삽입하는 행위  
+  mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);  
+  
+  Toast.makeText(RegisterActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();  
+  
+  Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);  
+  startActivity(intent);  
+  } else {  
+                    Toast.makeText(RegisterActivity.this, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show();  
+  }  
+            }  
+        });}  
+    }  
+});
+```
+
+### 3. 로그인 화면 구성
+1. LoginActivity 라는 이름의 empty activity 를 생성해준 후 activity_login.xml 에서 이메일과 비밀번호를 입력할 수 있는 EditText 와 로그인 버튼과 회원가입 화면으로 넘겨주는 버튼을 구현해준다. 
+```
+<?xml version="1.0" encoding="utf-8"?>  
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+  xmlns:app="http://schemas.android.com/apk/res-auto"  
+  xmlns:tools="http://schemas.android.com/tools"  
+  android:layout_width="match_parent"  
+  android:layout_height="match_parent"  
+  tools:context=".LoginActivity">  
+  
+ <EditText  android:id="@+id/et_email"  
+  android:layout_width="300dp"  
+  android:layout_height="40dp"  
+  android:layout_marginTop="200dp"  
+  android:ems="10"  
+  android:hint="이메일을 입력하세요"  
+  android:inputType="textEmailAddress"  
+  app:layout_constraintEnd_toEndOf="parent"  
+  app:layout_constraintStart_toStartOf="parent"  
+  app:layout_constraintTop_toTopOf="parent" />  
+  
+ <EditText  android:id="@+id/et_pwd"  
+  android:layout_width="300dp"  
+  android:layout_height="40dp"  
+  android:layout_marginTop="32dp"  
+  android:ems="10"  
+  android:hint="비밀번호를 입력하세요"  
+  android:inputType="textPassword"  
+  app:layout_constraintEnd_toEndOf="parent"  
+  app:layout_constraintHorizontal_bias="0.498"  
+  app:layout_constraintStart_toStartOf="parent"  
+  app:layout_constraintTop_toBottomOf="@+id/et_email" />  
+  
+ <Button  android:id="@+id/btn_login"  
+  android:layout_width="0dp"  
+  android:layout_height="wrap_content"  
+  android:layout_marginTop="24dp"  
+  android:layout_marginEnd="150dp"  
+  android:text="로그인"  
+  app:layout_constraintEnd_toEndOf="@+id/et_pwd"  
+  app:layout_constraintStart_toStartOf="@+id/et_pwd"  
+  app:layout_constraintTop_toBottomOf="@+id/et_pwd" />  
+  
+ <Button  android:id="@+id/btn_register"  
+  android:layout_width="0dp"  
+  android:layout_height="wrap_content"  
+  android:layout_marginStart="150dp"  
+  android:layout_marginTop="24dp"  
+  android:text="회원가입"  
+  app:layout_constraintEnd_toEndOf="@+id/et_pwd"  
+  app:layout_constraintStart_toStartOf="@+id/et_pwd"  
+  app:layout_constraintTop_toBottomOf="@+id/et_pwd" />  
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+2. LoginActivity 에 로그인과 관련한 Firebase 인증처리, 로그인 버튼 클릭시 MainActivity 화면으로 넘겨주는 옵션 처리와 회원가입 버튼 클릭 시 회원가입 화면으로 넘겨주는 옵션 처리 등의 코드를 추가해준다.
+```
+  
+    private FirebaseAuth mFirebaseAuth; //Firebase 인증처리  
+  private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체  
+  private EditText mEtEmail, mEtPwd; //로그인 입력필드  
+  EditText editText1, editText2;  
+  
+  
+  
+  @Override  
+  protected void onCreate(Bundle savedInstanceState) {  
+        super.onCreate(savedInstanceState);  
+  setContentView(R.layout.activity_login);  
+  
+  
+  mFirebaseAuth = FirebaseAuth.getInstance(); //firebase 이용준비 끝  
+  mDatabaseRef = FirebaseDatabase.getInstance().getReference("mapbox");  
+  
+  mEtEmail = findViewById(R.id.et_email);  
+  mEtPwd = findViewById(R.id.et_pwd);  
+  
+  Button btn_login = findViewById(R.id.btn_login);  
+  btn_login.setOnClickListener(new View.OnClickListener() {  
+            @Override  
+  public void onClick(View v) {  
+  
+                //로그인 요청  
+  String strEmail = mEtEmail.getText().toString();  
+  String strPwd = mEtPwd.getText().toString();  
+  
+ if(strEmail.getBytes().length <= 0 || strPwd.getBytes().length <= 0){  
+                    Toast.makeText(LoginActivity.this, "로그인 정보를 입력하세요", Toast.LENGTH_SHORT).show();  
+  }else {  
+  
+                mFirebaseAuth.signInWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {  
+                    @Override  
+  public void onComplete( @NotNull Task<AuthResult> task) {  
+                        if(task.isSuccessful()){  
+                            //로그인 성공시 MainAcitivity로 연결  
+  Intent intent = new Intent(LoginActivity.this, MainActivity.class);  
+  startActivity(intent);  
+  //finish(); //현재액티비티 파괴  
+  } else {  
+                            Toast.makeText(LoginActivity.this , "로그인 실패", Toast.LENGTH_SHORT).show();  
+  }  
+                    }  
+                });}  
+            }  
+        });  
+  
+  Button btn_register = findViewById(R.id.btn_register);  
+  btn_register.setOnClickListener(new View.OnClickListener() {  
+            @Override  
+  public void onClick(View v) {  
+                //회원가입 버튼을 눌렀을 때의 처리 -> 회원가입 창으로 이동  
+  Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);  
+  startActivity(intent);  
+  }  
+        });  
+  }  
+}
+```
+
+3. 로그인 완료 후 뒤로가기 버튼을 눌렀을 때 다시 로그인 화면으로 넘어가는 것을 막아주기 위해 MainActivity 에 다음과 같은 코드를 추가하여 준다.
+```
+//뒤로가기 버튼을 막아서 로그인 화면으로 넘어가는 오류를 해결  
+@Override  
+public void onBackPressed(){  
+    //super.onBackPressed();  
+}
+```
+4. 앱 실행시 LoginActivity 가 가장 먼저 실행되도록 하여 로그인 화면이 가장 먼저 화면에 띄워지도록 설정하기 위해 manifests 의 intent-filter 를 다음과 같이 LoginActivity 앞으로 연결시켜준다.
+```
+<activity android:name=".LoginActivity"  
+  android:theme="@style/Theme.AppCompat">  
+ <intent-filter> <action android:name="android.intent.action.MAIN" />  
+  
+ <category android:name="android.intent.category.LAUNCHER" />  
+ </intent-filter></activity>
+ ```
+
+5. MainActivity 화면의 옵션메뉴에서 로그아웃 버튼 클릭 시 로그인 화면으로 되돌아 가게 해주기 위해 menuoptions.xml 과 MainActivity 에 다음과 같이 코드를 추가해준다.
+
+##### menuoptions.xml
+```
+<item  
+  android:title="로그아웃"  
+  android:id="@+id/logout"/>
+```
+
+##### MainActivity
+```
+  
+//앱 상태바 메뉴를 메인이벤트에 연동시켜주는 메소드  
+public boolean onCreateOptionsMenu(Menu menu){  
+    getMenuInflater().inflate(R.menu.menuoptions, menu);  
+ return true;}  
+  
+//클릭 이벤트 처리  
+//메뉴 클릭시 선택한 메뉴를 호출하게 하는 메소드  
+public boolean onOptionsItemSelected(MenuItem item){  
+    switch (item.getItemId()){  
+        case R.id.logout:  
+  
+            mFirebaseAuth.signOut();  
+  Intent intent = new Intent(MainActivity.this, LoginActivity.class);  
+  startActivity(intent);  
+  Toast.makeText(MainActivity.this,"로그아웃 되었습니다", Toast.LENGTH_SHORT).show();  
+  
+  }  
+    return false;  
+}
+```
+
+### 4. 사용자 정보 모델 클래스 
+1. UserAccount 라는 이름의 사용자 계정 정보를 가져오는 클래스 생성 후 getter 와 setter 를 이용하여 다음과 같이 코드를 작성한다.
+```
+package com.example.mapbox;  
+  
+// 회원가입 사용자 계정 정보 모델 클래스  
+public class UserAccount {  
+  
+    private String idToken; //Firebase Uid(고유 토큰 정보)  
+  private String emailId; // 이메일아이디  
+  private String password; // 비밀번호  
+  
+  //firebase 는 빈 생성자를 만들어줘야 오류가 나지 않는다.  
+  public UserAccount() {  
+    }  
+  
+    public String getIdToken() {  
+        return idToken;  
+  }  
+  
+    public void setIdToken(String idToken) {  
+        this.idToken = idToken;  
+  }  
+  
+    public String getEmailId() {  
+        return emailId;  
+  }  
+  
+    public void setEmailId(String emailId) {  
+        this.emailId = emailId;  
+  }  
+  
+    public String getPassword() {  
+        return password;  
+  }  
+  
+    public void setPassword(String password) {  
+        this.password = password;  
+  }  
+}
+```
+
+##  MAPBOX
 맵박스는 3차원 동적 지도 웹서비스 개발을 지원하고 맞춤형 디자인 맵을 위한 오픈 소스 매핑 플랫폼이다.
 맵박스를 이용해 동적지도, 3차원 지도, 네비게이션, 증강현실 다양한 것을 만들 수 있다.
 
 
-## 2. MAPBOX SDK 및 MAPBOX 네비게이션 SDK 설치방법
+## MAPBOX 네비게이션 SDK 설치방법
 맵박스를 활용하여 네비게이션 기능을 구현하기 위해서는 안드로이드 스튜디오에
 맵박스 SDK 및 맵박스 네비게이션 SDK 두가지를 설치해야한다.
 
-참고  
-https://docs.mapbox.com/help/tutorials/android-navigation-sdk/  
-https://docs.mapbox.com/android/maps/guides/install/  
+참고: 
+https://docs.mapbox.com/help/tutorials/android-navigation-sdk/
+https://docs.mapbox.com/android/maps/guides/install/
 (맵박스 SDK 설치 및 맵박스 네비게이션 튜토리얼)
 
 1. 다음과 같이 [MAPBOX Account](#https://account.mapbox.com/) 페이지에 접속하여 로그인 후 다음과 같이 ACCESS 토큰을 복사한다.
@@ -182,8 +518,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
   }
   ```
 
-## 3. getRoute 메소드
-getRoute 는 사용자의 위치와 목적지 사이의 경로를 구해주는 메소드이다.
+## getRoute 메소드
+getRoute 는 사용자의 위치와 목적지 사이의 좌표를 구해주는 메소드이다.
 아래는 도보 전용 길찾기 메소드이다. 차량용 길찾기로 설정을 바꾸려면
 .profile(DirectionsCriteria.PROFILE_WALKING) 이 부분을 지워주거나 주석처리한다.
 
@@ -227,7 +563,7 @@ private void getRoute(Point origin, Point destination) {
 }
 ```
 
-## 4. 목적지 설정 방법
+## 목적지 설정 방법
 MAPBOX 튜토리얼은 맵에 클릭한 곳의 좌표를 목적지로 받아오고 사용자와의 루트를 구해주는 방식이었다.
 하지만 DK GIUDE 는 단국대 전용 가이드 앱이므로 팝업 메뉴를 활용하여 위치를 한정하였다.
 
@@ -491,10 +827,8 @@ button1.setOnClickListener(new View.OnClickListener() {
 }
 ```
 
-## 5. 사용자 위치
-GPS 를 활용하여 사용자의 현재 위도, 경도 값을 double 변수인 Lo, La 에 전달해주고 Lo, La 변수를 이용하여 사용자의 위치를 나타내는 originPoint 에 전달을 해주는 방식이다.
-
-이 방식을 이용하여 맵이 로드되면 그 위에 사용자의 위치를 표시하였다.
+## 사용자 위치
+GPS 를 활용하여 나의 위치를 맵에 표시해주고 originPoint 에 내 현재 위치의 위도, 경도 값을 전달해주는 방식을 이용하였다. 
 
 1.  사용자의 위치를 지도에 표시 하기 위한 메소드
 ```
@@ -554,7 +888,7 @@ public void onPermissionResult(boolean granted) {
 }
 ```
 
-2. 사용자의 현재위치 위도, 경도값을 originPoint 에 전달해주는 double 변수 Lo, La 에 넣어주기 위한 클래스
+2. 사용자의 현재위치 위도, 경도값을 originPoint 에 전달해주는  변수 Lo, La 에 넣어주기 위한 클래스
 Lo, La 에는 사용자의 위도, 경도 값이 각각 들어가 있다.
 ```
 class MainActivityLocationCallback implements LocationEngineCallback<LocationEngineResult> {  
@@ -604,9 +938,6 @@ class MainActivityLocationCallback implements LocationEngineCallback<LocationEng
 enableLocationComponent(style);
 ```
 
-
-
----
 # 유니티
 ## 안드로이드와 연동
 ## AR을 활용한 방향 표시
