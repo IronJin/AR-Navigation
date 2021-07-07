@@ -21,9 +21,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private FirebaseAuth mFirebaseAuth; //Firebase 인증처리
-    private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체
-    private EditText mEtEmail, mEtPwd; //로그인 입력필드
+    private FirebaseAuth mFirebaseAuth; //파베 인증처리
+    private DatabaseReference mDatabaseRef;//실시간
+    private EditText mEtId, mEtPwd;
+
     EditText editText1, editText2;
 
 
@@ -37,16 +38,16 @@ public class LoginActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance(); //firebase 이용준비 끝
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("mapbox");
 
-        mEtEmail = findViewById(R.id.et_email);
-        mEtPwd = findViewById(R.id.et_pwd);
+        mEtId = findViewById(R.id.idText);
+        mEtPwd = findViewById(R.id.passwordText);
 
-        Button btn_login = findViewById(R.id.btn_login);
+        Button btn_login = findViewById(R.id.btn_Login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //로그인 요청
-                String strEmail = mEtEmail.getText().toString();
+                String strEmail = mEtId.getText().toString();
                 String strPwd = mEtPwd.getText().toString();
 
                 if(strEmail.getBytes().length <= 0 || strPwd.getBytes().length <= 0){
@@ -63,13 +64,16 @@ public class LoginActivity extends AppCompatActivity {
                             //finish(); //현재액티비티 파괴
                         } else {
                             Toast.makeText(LoginActivity.this , "로그인 실패", Toast.LENGTH_SHORT).show();
+                           //바뀐 부분 로그인실패시 로그인 화면으로 다시 이동
+                            Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
+                            startActivity(intent);
                         }
                     }
                 });}
             }
         });
 
-        Button btn_register = findViewById(R.id.btn_register);
+        Button btn_register = findViewById(R.id.registerButton);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

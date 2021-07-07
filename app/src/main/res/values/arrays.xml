@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="major">
+        <item>SW-융합대학</item>
+        <item>공과대학</item>
+        <item>경영경제대학</item>
+        <item>문과대학</item>
+        <item>법과대학</item>
+        <item>사회과학대학</item>
+        <item>사범대학</item>
+        <item>음악예술대학</item>
+
+    </string-array>
+
+</resources>
