@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DK GUIDE</string>
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiY2hlb2xqaW4iLCJhIjoiY2tvazlwODllMDFlYzJucGw4Y2VjZDE2MyJ9.IGfqgnt2umdkUs6LF-xR4g</string>
+    <string name="user_location_permission_explanation">Give me Location</string>
+    <string name="user_location_permission_not_granted">Location Load Fail</string>
+    <string name="new_location">New Location : </string>
+    <string name="Language">Language</string>
+    <string name="Logout">Logout</string>
+    <string name="Korean">Korean</string>
+    <string name="English">English</string>
+    <string name="Chinese">Chinese</string>
+    <string name="Location">Set Location</string>
+    <string name="CampusMap">CampusMap</string>
+    <string name="College_of_Engineering_Building1">College_of_Engineering_Building1</string>
+    <string name="College_of_Engineering_Building2">College_of_Engineering_Building2</string>
+    <string name="College_of_Engineering_Building3">College_of_Engineering_Building3</string>
+    <string name="Social_Science_Hall">Social_Science_Hall</string>
+    <string name="Software_ICT_Hall">Software_ICT_Hall</string>
+    <string name="Media_Center">Media_Center</string>
+    <string name="BumJeong_Hall">BumJeong_Hall</string>
+    <string name="Humanities_Hall">Humanities_Hall</string>
+    <string name="Business_and_Economics_Hall">Business_and_Economics_Hall</string>
+    <string name="Education_Hall">Education_Hall</string>
+    <string name="Hyedang_Hall">Hyedang_Hall</string>
+    <string name="Toegye_Memorial_Central_Library">Toegye_Memorial_Central_Library</string>
+    <string name="Graduate_School">Graduate_School</string>
+    <string name="International_Hall">International_Hall</string>
+    <string name="Laboratories">Laboratories</string>
+    <string name="Bear_Statue">Bear_Statue</string>
+    <string name="Main_Gate">Main_Gate</string>
+    <string name="Gymnasium_Performing_Arts_Center">Gymnasium_Performing_Arts_Center</string>
+    <string name="Main_Stadium">Main_Stadium</string>
+    <string name="Performing_Arts_Hall">Performing_Arts_Hall</string>
+    <string name="Dormitory">Dormitory</string>
+    <string name="Woongbi_Hall">Woongbi_Hall</string>
+    <string name="Jiphyeonjae">Jiphyeonjae</string>
+    <string name="Jukjeon_Dental_Hospital">Jukjeon_Dental_Hospital</string>
+    <string name="Open_Ground">Open_Ground</string>
+    <string name="Music_Hall">Music_Hall</string>
+    <string name="Arts_Hall">Arts_Hall</string>
+    <string name="Waterfall_Park">Waterfall_Park</string>
+</resources>

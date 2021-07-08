@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     //앱 상태바 메뉴 옵션
-    <item android:title="언어설정"
+    <item android:title="@string/Language"
         android:id="@+id/menu1"/>
 
     <item
-        android:title="캠퍼스맵"
+        android:title="@string/CampusMap"
         android:id="@+id/menu2" />
 
     <item
-        android:title="로그아웃"
+        android:title="@string/Logout"
         android:id="@+id/logout"/>
 </menu>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">DK GUIDE</string>
     <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiY2hlb2xqaW4iLCJhIjoiY2tvazlwODllMDFlYzJucGw4Y2VjZDE2MyJ9.IGfqgnt2umdkUs6LF-xR4g</string>

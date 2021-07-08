@@ -5,112 +5,112 @@
     //목적지 설정 버튼 팝업 메뉴 설정
     <item
         android:id="@+id/action_menu1"
-        android:title="제 1공학관"/>
+        android:title="@string/College_of_Engineering_Building1"/>
     <item
         android:id="@+id/action_menu2"
-        android:title="제 2공학관" />
+        android:title="@string/College_of_Engineering_Building2" />
     <item
         android:id="@+id/action_menu3"
-        android:title="제 3공학관" />
+        android:title="@string/College_of_Engineering_Building3" />
 
     <item
         android:id="@+id/action_menu4"
-        android:title="사회과학관" />
+        android:title="@string/Social_Science_Hall" />
 
     <item
         android:id="@+id/action_menu5"
-        android:title="소프트웨어 ICT관" />
+        android:title="@string/Software_ICT_Hall" />
 
     <item
         android:id="@+id/action_menu6"
-        android:title="미디어센터" />
+        android:title="@string/Media_Center" />
 
     <item
         android:id="@+id/action_menu7"
-        android:title="범정관" />
+        android:title="@string/BumJeong_Hall" />
 
     <item
         android:id="@+id/action_menu8"
-        android:title="인문관" />
+        android:title="@string/Humanities_Hall" />
 
     <item
         android:id="@+id/action_menu9"
-        android:title="상경관" />
+        android:title="@string/Business_and_Economics_Hall" />
 
     <item
         android:id="@+id/action_menu10"
-        android:title="사범관" />
+        android:title="@string/Education_Hall" />
 
     <item
         android:id="@+id/action_menu11"
-        android:title="혜당관" />
+        android:title="@string/Hyedang_Hall" />
 
     <item
         android:id="@+id/action_menu12"
-        android:title="퇴계기념중앙도서관" />
+        android:title="@string/Toegye_Memorial_Central_Library" />
 
     <item
         android:id="@+id/action_menu13"
-        android:title="법학관, 대학원동" />
+        android:title="@string/Graduate_School" />
 
     <item
         android:id="@+id/action_menu14"
-        android:title="국제관" />
+        android:title="@string/International_Hall" />
 
     <item
         android:id="@+id/action_menu15"
-        android:title="종합실험동" />
+        android:title="@string/Laboratories" />
 
     <item
         android:id="@+id/action_menu16"
-        android:title="곰상" />
+        android:title="@string/Bear_Statue" />
 
     <item
         android:id="@+id/action_menu17"
-        android:title="정문" />
+        android:title="@string/Main_Gate" />
 
     <item
         android:id="@+id/action_menu18"
-        android:title="체육관" />
+        android:title="@string/Gymnasium_Performing_Arts_Center" />
 
     <item
         android:id="@+id/action_menu19"
-        android:title="대운동장" />
+        android:title="@string/Main_Stadium" />
 
     <item
         android:id="@+id/action_menu20"
-        android:title="무용관" />
+        android:title="@string/Performing_Arts_Hall" />
 
     <item
         android:id="@+id/action_menu21"
-        android:title="진리관" />
+        android:title="@string/Dormitory" />
 
     <item
         android:id="@+id/action_menu22"
-        android:title="웅비홀" />
+        android:title="@string/Woongbi_Hall" />
 
     <item
         android:id="@+id/action_menu23"
-        android:title="집현재" />
+        android:title="@string/Jiphyeonjae" />
 
     <item
         android:id="@+id/action_menu24"
-        android:title="죽전치과병원" />
+        android:title="@string/Jukjeon_Dental_Hospital" />
 
     <item
         android:id="@+id/action_menu25"
-        android:title="노천마당, 풋살장" />
+        android:title="@string/Open_Ground" />
 
     <item
         android:id="@+id/action_menu26"
-        android:title="음악관" />
+        android:title="@string/Music_Hall" />
 
     <item
         android:id="@+id/action_menu27"
-        android:title="미술관" />
+        android:title="@string/Arts_Hall" />
 
     <item
         android:id="@+id/action_menu28"
-        android:title="폭포공원" />
+        android:title="@string/Waterfall_Park" />
 
 </menu>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DK GUIDE</string>
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiY2hlb2xqaW4iLCJhIjoiY2tvazlwODllMDFlYzJucGw4Y2VjZDE2MyJ9.IGfqgnt2umdkUs6LF-xR4g</string>
+    <string name="user_location_permission_explanation">请给我位置权限</string>
+    <string name="user_location_permission_not_granted">位置授权失败退出</string>
+    <string name="new_location">新位置 : </string>
+    <string name="Language">语言</string>
+    <string name="Logout">注销</string>>
+    <string name="Korean">朝鲜语</string>
+    <string name="English">英语</string>
+    <string name="Chinese">汉语</string>
+    <string name="Location">定位</string>
+    <string name="CampusMap">校园地图</string>
+    <string name="College_of_Engineering_Building1">工程学院-第一座</string>
+    <string name="College_of_Engineering_Building2">工程学院-第二大楼</string>
+    <string name="College_of_Engineering_Building3">工程学院-第三座</string>
+    <string name="Social_Science_Hall">社会科学会馆</string>
+    <string name="Software_ICT_Hall">软件ICT大厅</string>
+    <string name="Media_Center">媒体中心</string>
+    <string name="BumJeong_Hall">范政厅</string>
+    <string name="Humanities_Hall">人文馆</string>
+    <string name="Business_and_Economics_Hall">工商经济会馆</string>
+    <string name="Education_Hall">教育厅</string>
+    <string name="Hyedang_Hall">惠堂会馆</string>
+    <string name="Toegye_Memorial_Central_Library">退溪纪念中央图书馆</string>
+    <string name="Graduate_School">研究生院</string>
+    <string name="International_Hall">国际会馆</string>
+    <string name="Laboratories">实验室</string>
+    <string name="Bear_Statue">熊雕像</string>
+    <string name="Main_Gate">正门</string>
+    <string name="Gymnasium_Performing_Arts_Center">体育馆演艺中心</string>
+    <string name="Main_Stadium">主体育场</string>
+    <string name="Performing_Arts_Hall">演艺厅</string>
+    <string name="Dormitory">宿舍</string>
+    <string name="Woongbi_Hall">熊壁会馆</string>
+    <string name="Jiphyeonjae">集贤斋（宿舍）</string>
+    <string name="Jukjeon_Dental_Hospital">竹田牙科医院</string>
+    <string name="Open_Ground">露天场地(壁球场)</string>
+    <string name="Music_Hall">音乐厅</string>
+    <string name="Arts_Hall">艺术厅</string>
+    <string name="Waterfall_Park">瀑布公园</string>
+</resources>
