@@ -11,10 +11,15 @@
         android:label="Dankook-Map"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< Updated upstream
         android:theme="@style/Theme.AppCompat.NoActionBar">
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="whateverString">
 
+=======
+        android:theme="@style/Theme.Mapbox"
+        tools:replace="android:appComponentFactory">
+>>>>>>> Stashed changes
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -26,8 +31,20 @@
 
             </intent-filter>
 
+<<<<<<< Updated upstream
         </activity>
 
+=======
+        </activity>
+
+
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+        <activity android:name=".RegisterActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+>>>>>>> Stashed changes
         <activity
             android:name=".LoginActivity">
 

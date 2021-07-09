@@ -32,7 +32,10 @@ public class RegisterActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
     private Spinner spinner;
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super .onCreate(savedInstanceState);
@@ -78,14 +81,22 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent);
 
                         } else {
+<<<<<<< Updated upstream
                             Toast.makeText(RegisterActivity.this, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show();
+=======
+                            Toast.makeText(RegisterActivity.this, R.string.sing_up_fail, Toast.LENGTH_SHORT).show();
+>>>>>>> Stashed changes
                             Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
                             startActivity(intent);
                         }
                     }
-                });}
+                });
+
+                }
             }
         });
-
+        spinner = (Spinner) findViewById(R.id.majorSpinner);
+        adapter = ArrayAdapter.createFromResource(this, R.array.major, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }

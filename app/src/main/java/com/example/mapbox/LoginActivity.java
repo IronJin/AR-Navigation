@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -73,13 +74,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+<<<<<<< Updated upstream
         Button btn_register = findViewById(R.id.registerButton);
+=======
+        TextView btn_register = (TextView) findViewById(R.id.btn_register);
+>>>>>>> Stashed changes
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //회원가입 버튼을 눌렀을 때의 처리 -> 회원가입 창으로 이동
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
+                LoginActivity.this.startActivity(intent);
             }
         });
     }

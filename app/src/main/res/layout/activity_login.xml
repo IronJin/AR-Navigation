@@ -50,14 +50,22 @@
            android:orientation="vertical">
 
            <EditText
+<<<<<<< Updated upstream
                android:id="@+id/idText"
+=======
+               android:id="@+id/et_email"
+>>>>>>> Stashed changes
                android:layout_width="280dp"
                android:layout_height="wrap_content"
                android:layout_marginTop="50dp"
                android:background="@color/colorPrimary1"
                android:drawableStart="@drawable/ic_baseline_person_24"
                android:drawableLeft="@drawable/ic_baseline_person_24"
+<<<<<<< Updated upstream
                android:hint="이메일"
+=======
+               android:hint="이메일을 입력하세요"
+>>>>>>> Stashed changes
                android:layout_gravity="center"
                android:padding="10dp"
                android:textColor="#ffffff"
@@ -67,19 +75,31 @@
                android:inputType="textPassword"
                android:layout_width="280dp"
                android:layout_height="wrap_content"
+<<<<<<< Updated upstream
                android:hint="비밀번호"
+=======
+               android:hint="비밀번호를 입력하세요"
+>>>>>>> Stashed changes
                android:layout_gravity="center"
                android:padding="10dp"
                android:textColor="#ffffff"
                android:textColorHint="#ffffff"
+<<<<<<< Updated upstream
                android:id="@+id/passwordText"
+=======
+               android:id="@+id/et_pwd"
+>>>>>>> Stashed changes
                android:drawableStart="@drawable/ic_baseline_lock_24"
                android:drawableLeft="@drawable/ic_baseline_lock_24"
                android:layout_marginTop="10dp"
                android:background="@color/colorPrimary1"
                />
            <Button
+<<<<<<< Updated upstream
                android:id="@+id/btn_Login"
+=======
+               android:id="@+id/btn_login"
+>>>>>>> Stashed changes
                android:layout_width="280dp"
                android:layout_height="wrap_content"
                android:textSize="20dp"
@@ -96,7 +116,11 @@
                android:textSize="18dp"
                android:layout_marginTop="10dp"
                android:text="회원가입"
+<<<<<<< Updated upstream
                android:id="@+id/registerButton"/>
+=======
+               android:id="@+id/btn_register"/>
+>>>>>>> Stashed changes
 
        </LinearLayout>
 
