@@ -14,8 +14,7 @@
         mapbox:mapbox_cameraTargetLng="-77.0295"
         mapbox:mapbox_cameraZoom="15.5" />
 
-
-    //2d네비게이션 스타트 버튼
+    <!--2d네비게이션 스타트 버튼-->
     <Button
         android:id="@+id/startButton"
         android:layout_width="50dp"
@@ -29,7 +28,7 @@
         mapbox:layout_constraintRight_toRightOf="parent"
         mapbox:layout_constraintBottom_toBottomOf="parent" />
 
-    //ar네비게이션 스타트 버튼
+    <!--ar네비게이션 스타트 버튼-->
     <Button
         android:id="@+id/arbutton"
         android:layout_width="50dp"
@@ -43,18 +42,16 @@
         mapbox:layout_constraintBottom_toBottomOf="parent"
         mapbox:layout_constraintRight_toRightOf="parent" />
 
-    //목적지 팝업 메뉴 버튼
+    <!--목적지 팝업 메뉴 버튼-->
     <Button
         android:id="@+id/destination"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="목적지 설정"
+        android:text="@string/destination_setting"
         android:textColor="@color/mapboxWhite"
         mapbox:layout_constraintStart_toStartOf="parent"
         mapbox:layout_constraintTop_toTopOf="parent" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

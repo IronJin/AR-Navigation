@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    //앱 상태바 메뉴 옵션
-    <item android:title="언어설정"
+    <!--앱 상태바 메뉴 옵션-->
+    <item android:title="@string/setting"
         android:id="@+id/menu1"/>
 
     <item
-        android:title="캠퍼스맵"
+        android:title="@string/campus_map"
         android:id="@+id/menu2" />
 
     <item
-        android:title="로그아웃"
+        android:title="@string/logout"
         android:id="@+id/logout"/>
+
+    <item android:title="@string/app_exit"
+        android:id="@+id/menu3"/>
 </menu>

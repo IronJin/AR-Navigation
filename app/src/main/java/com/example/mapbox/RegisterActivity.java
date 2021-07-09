@@ -1,14 +1,13 @@
 package com.example.mapbox;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,8 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체
     private EditText mEtEmail, mEtPwd; //회원가입 입력필드
     private Button mBtnRegister; //회원가입 버튼
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String strPwd = mEtPwd.getText().toString();
 
                 if(strEmail.getBytes().length <=0 || strPwd.getBytes().length <=0){
-                    Toast.makeText(RegisterActivity.this ,"가입정보를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this ,R.string.sing_up_infoenter, Toast.LENGTH_SHORT).show();
                 }else{
 
                 //FirebaseAuth 진행
@@ -67,12 +64,12 @@ public class RegisterActivity extends AppCompatActivity {
                             //setValue 는 database에 삽입하는 행위
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
 
-                            Toast.makeText(RegisterActivity.this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, R.string.sing_up_success, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(RegisterActivity.this, "회원가입에 실패하셨습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, R.string.sing_up_fail, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });}

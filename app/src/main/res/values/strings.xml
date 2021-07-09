@@ -4,4 +4,86 @@
     <string name="user_location_permission_explanation">위치권한주세요</string>
     <string name="user_location_permission_not_granted">위치권한실패 종료함</string>
     <string name="new_location">새로운 위치 : </string>
+
+    <!--메뉴 옵션 문자열 -->
+    <string name="app_exit">앱 종료</string>
+    <string name="setting">환경설정</string>
+    <string name="campus_map">캠퍼스 맵</string>
+    <string name="logout">로그아웃</string>
+    <string name="logged_out">로그아웃 되었습니다</string>
+
+    <!--환경설정 목록 문자열 -->
+    <string name="language_setting">언어</string>
+    <string name="language_setting_de">변경할 언어를 선택하세요</string>
+    <string name="app_info">앱 정보</string>
+
+    <!--앱 종료 문자열 -->
+    <string name="real_quit">정말로 종료하시겠습니까?</string>
+    <string name="alert_quit">종료 알림창</string>
+
+    <!--환경설정 언어 목록 문자열 -->
+    <string-array name="language">
+        <item>한국어</item>
+        <item>영어</item>
+        <item>중국어</item>
+    </string-array>
+
+    <string-array name="language_value">
+        <item>ko</item>
+        <item>en</item>
+        <item>zh</item>
+    </string-array>
+
+    <!--언어 변환 값 문자열 -->
+    <string name="korea">한국어</string>
+    <string name="english">영어</string>
+    <string name="chinese">중국어</string>
+
+    <!--로그인 창 문자열-->
+    <string name="login_email">이메일을 입력하세요</string>
+    <string name="login_password">비밀번호를 입력하세요</string>
+    <string name="login">로그인</string>
+    <string name="longin_sing_up">회원가입</string>
+    <string name="login_info">로그인 정보를 입력하세요</string>
+    <string name="login_fail">로그인 실패</string>
+
+    <!--회원가입 창 문자열-->
+    <string name="sing_up_email">이메일을 입력하세요</string>
+    <string name="sing_up_password">비밀번호를 입력하세요.(6자리 이상)</string>
+    <string name="sing_up_sing_up">회원가입</string>
+    <string name="sing_up_infoenter">가입정보를 입력하세요.</string>
+    <string name="sing_up_success">회원가입에 성공하셨습니다.</string>
+    <string name="sing_up_fail">회원가입에 실패하셨습니다.</string>
+
+    <!--목적지 설정 문자열열-->
+    <string name="destination_setting">목적지 설정</string>
+    <string name="College_of_Engineering_Building1">제 1공학관</string>
+    <string name="College_of_Engineering_Building2">제 2공학관</string>
+    <string name="College_of_Engineering_Building3">제 3공학관</string>
+    <string name="Social_Science_Hall">사회과학관</string>
+    <string name="Software_ICT_Hall">소프트웨어 ICT관</string>
+    <string name="Media_Center">미디어센터</string>
+    <string name="BumJeong_Hall">범정관</string>
+    <string name="Humanities_Hall">인문관</string>
+    <string name="Business_and_Economics_Hall">상경관</string>
+    <string name="Education_Hall">사범관</string>
+    <string name="Hyedang_Hall">혜당관</string>
+    <string name="Toegye_Memorial_Central_Library">퇴계기념중앙도서관</string>
+    <string name="Graduate_School">법학관, 대학원동</string>
+    <string name="International_Hall">국제관</string>
+    <string name="Laboratories">종합실험동</string>
+    <string name="Bear_Statue">곰상</string>
+    <string name="Main_Gate">정문</string>
+    <string name="Gymnasium_Performing_Arts_Center">체육관</string>
+    <string name="Main_Stadium">대운동장</string>
+    <string name="Performing_Arts_Hall">무용관</string>
+    <string name="Dormitory">진리관</string>
+    <string name="Woongbi_Hall">웅비홀</string>
+    <string name="Jiphyeonjae">집현재</string>
+    <string name="Jukjeon_Dental_Hospital">죽전치과병원</string>
+    <string name="Open_Ground">노천마당,풋살장</string>
+    <string name="Music_Hall">음악관</string>
+    <string name="Arts_Hall">미술관</string>
+    <string name="Waterfall_Park">폭포공원</string>
+
 </resources>
