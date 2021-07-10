@@ -9,8 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#33C377</color>
     <color name="colorPrimaryDark">#FF218450</color>
-    <color name="colorPrimary1">#3F51B5</color>
-    <color name="colorPrimaryDark1">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="mapboxWhite">#ffffff</color>
     <color name="mapboxBlue">#4264fb</color>

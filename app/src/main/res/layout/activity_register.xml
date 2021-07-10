@@ -35,11 +35,7 @@
             android:orientation="vertical">
 
             <EditText
-<<<<<<< Updated upstream
-                android:id="@+id/idText"
-=======
                 android:id="@+id/et_email"
->>>>>>> Stashed changes
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
@@ -61,11 +57,7 @@
                 android:padding="10dp"
                 android:textColor="#ffffff"
                 android:textColorHint="#ffffff"
-<<<<<<< Updated upstream
-                android:id="@+id/passwordText"
-=======
                 android:id="@+id/et_pwd"
->>>>>>> Stashed changes
                 android:drawableStart="@drawable/ic_baseline_lock_24"
                 android:drawableLeft="@drawable/ic_baseline_lock_24"
                 android:layout_marginTop="10dp"
@@ -128,11 +120,7 @@
                 android:text="가입하기"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-<<<<<<< Updated upstream
-                android:id="@+id/registerButton"/>
-=======
                 android:id="@+id/btn_register"/>
->>>>>>> Stashed changes
 
 
         </LinearLayout>
