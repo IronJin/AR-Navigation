@@ -37,7 +37,8 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat">
         </activity>
-        <activity android:name=".PreferencesActivity">
+        <activity android:name=".PreferencesActivity"
+            android:theme="@style/Theme.AppCompat">
         </activity>
     </application>
 

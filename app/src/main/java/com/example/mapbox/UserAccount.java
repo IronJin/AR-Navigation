@@ -1,3 +1,4 @@
+
 package com.example.mapbox;
 
 // 회원가입 사용자 계정 정보 모델 클래스
