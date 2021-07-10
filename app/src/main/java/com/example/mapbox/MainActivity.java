@@ -681,7 +681,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                moveTaskToBack(true);
+
                                 finish();
+
+                                android.os.Process.killProcess(android.os.Process.myPid());
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
