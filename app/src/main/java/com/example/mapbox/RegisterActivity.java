@@ -3,8 +3,10 @@ package com.example.mapbox;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,13 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체
     private EditText mEtEmail, mEtPwd; //회원가입 입력필드
     private Button mBtnRegister; //회원가입 버튼
+
+
+
+    private ArrayAdapter adapter;
+    private Spinner spinner;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +79,17 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             Toast.makeText(RegisterActivity.this, R.string.sing_up_fail, Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
+                            startActivity(intent);
+
                         }
                     }
                 });}
             }
         });
-
+        spinner = (Spinner) findViewById(R.id.majorSpinner);
+        adapter = ArrayAdapter.createFromResource(this, R.array.major, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }

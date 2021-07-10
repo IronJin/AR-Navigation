@@ -6,6 +6,22 @@
     <string name="user_location_permission_not_granted">Location Load Fail</string>
     <string name="new_location">New Location : </string>
 
+
+    <!--회원가입 문자열-->
+    <string-array name="major">
+        <item>SW-융합대학</item>
+        <item>공과대학</item>
+        <item>경영경제대학</item>
+        <item>문과대학</item>
+        <item>법과대학</item>
+        <item>사회과학대학</item>
+        <item>사범대학</item>
+        <item>음악예술대학</item>
+
+    </string-array>
+
+
+
     <!--메뉴 옵션 문자열 -->
     <string name="app_exit">Quit the app</string>
     <string name="setting">Setting</string>
