@@ -4,10 +4,6 @@
     <string name="user_location_permission_explanation">위치권한주세요</string>
     <string name="user_location_permission_not_granted">위치권한실패 종료함</string>
     <string name="new_location">새로운 위치 : </string>
-<<<<<<< Updated upstream
-=======
-
-
     <!--회원가입 문자열-->
     <string-array name="major">
         <item>SW-융합대학</item>
@@ -20,7 +16,6 @@
         <item>음악예술대학</item>
 
     </string-array>
-
 
     <!--메뉴 옵션 문자열 -->
     <string name="app_exit">앱 종료</string>
@@ -103,5 +98,4 @@
     <string name="Arts_Hall">미술관</string>
     <string name="Waterfall_Park">폭포공원</string>
 
->>>>>>> Stashed changes
 </resources>
