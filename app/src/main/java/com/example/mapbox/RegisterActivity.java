@@ -29,8 +29,11 @@ public class RegisterActivity extends AppCompatActivity {
     private Button mBtnRegister; //회원가입 버튼
 
 
+
     private ArrayAdapter adapter;
     private Spinner spinner;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +79,10 @@ public class RegisterActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             Toast.makeText(RegisterActivity.this, R.string.sing_up_fail, Toast.LENGTH_SHORT).show();
+
                             Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);
                             startActivity(intent);
+
                         }
                     }
                 });}
