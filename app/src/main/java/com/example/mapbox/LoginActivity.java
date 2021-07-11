@@ -25,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth; //Firebase 인증처리
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체
     private EditText mEtEmail, mEtPwd; //로그인 입력필드
-    EditText editText1, editText2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -29,7 +29,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_gravity="center"
-               android:text="DANKOOK-MAP"
+               android:text="DK-GUIDE"
                android:textColor="#ffffff"
                android:textSize="25dp"
                android:textStyle="bold"
@@ -39,7 +39,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_gravity="center"
-               android:text="made by 컴겔"
+               android:text="made by 컴갤"
                android:textColor="#ffffff"
                android:textSize="10dp"
                android:textStyle="bold"/>

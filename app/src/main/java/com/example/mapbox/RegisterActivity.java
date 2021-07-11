@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth; //Firebase 인증처리
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체
-    private EditText mEtEmail, mEtPwd; //회원가입 입력필드
+    private EditText mEtEmail, mEtPwd, PNb; //회원가입 입력필드
     private Button mBtnRegister; //회원가입 버튼
 
 
@@ -46,7 +48,14 @@ public class RegisterActivity extends AppCompatActivity {
 
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_pwd);
+        PNb = findViewById(R.id.phone_numberText);
         mBtnRegister = findViewById(R.id.btn_register);
+
+        spinner = (Spinner) findViewById(R.id.majorSpinner);
+        adapter = ArrayAdapter.createFromResource(this, R.array.major, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        RadioGroup rg = (RadioGroup)findViewById(R.id.genderGroup);
 
         //회원가입 버튼이 클릭될때의 옵션처리
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
@@ -54,11 +63,15 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String strEmail = mEtEmail.getText().toString();
                 String strPwd = mEtPwd.getText().toString();
+                String PhoneNumber = PNb.getText().toString();
+                String major = spinner.getSelectedItem().toString();
+                int id = rg.getCheckedRadioButtonId();
+                RadioButton rb = (RadioButton)findViewById(id);
+                String gender = rb.getText().toString();
 
-                if(strEmail.getBytes().length <=0 || strPwd.getBytes().length <=0){
+                if(strEmail.getBytes().length <=0 || strPwd.getBytes().length <=0 || PhoneNumber.getBytes().length <=0 ) {
                     Toast.makeText(RegisterActivity.this ,R.string.sing_up_infoenter, Toast.LENGTH_SHORT).show();
                 }else{
-
                 //FirebaseAuth 진행
                 mFirebaseAuth.createUserWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -70,6 +83,9 @@ public class RegisterActivity extends AppCompatActivity {
                             account.setIdToken(firebaseUser.getUid());
                             account.setEmailId(firebaseUser.getEmail());
                             account.setPassword(strPwd);
+                            account.setPhoneNumber(PhoneNumber);
+                            account.setMajor(major);
+                            account.setGender(gender);
 
                             //setValue 는 database에 삽입하는 행위
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
@@ -89,8 +105,6 @@ public class RegisterActivity extends AppCompatActivity {
                 });}
             }
         });
-        spinner = (Spinner) findViewById(R.id.majorSpinner);
-        adapter = ArrayAdapter.createFromResource(this, R.array.major, android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+
     }
 }
