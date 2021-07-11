@@ -6,16 +6,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< Updated upstream
+=======
+import android.widget.Spinner;
+import android.widget.TextView;
+>>>>>>> Stashed changes
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,7 +33,9 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth; //Firebase 인증처리
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체
     private EditText mEtEmail, mEtPwd; //로그인 입력필드
-    EditText editText1, editText2;
+
+
+
 
 
 
@@ -40,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_pwd);
 
+
         Button btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,18 +61,25 @@ public class LoginActivity extends AppCompatActivity {
                 String strEmail = mEtEmail.getText().toString();
                 String strPwd = mEtPwd.getText().toString();
 
+
+
                 if(strEmail.getBytes().length <= 0 || strPwd.getBytes().length <= 0){
+<<<<<<< Updated upstream
                     Toast.makeText(LoginActivity.this, "로그인 정보를 입력하세요", Toast.LENGTH_SHORT).show();
                 }else {
 
+=======
+                    Toast.makeText(LoginActivity.this, R.string.login_info, Toast.LENGTH_SHORT).show();
+                } else {
+>>>>>>> Stashed changes
                 mFirebaseAuth.signInWithEmailAndPassword(strEmail, strPwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete( @NotNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            //로그인 성공시 MainAcitivity로 연결
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            //finish(); //현재액티비티 파괴
+                                //로그인 성공시 MainAcitivity로 연결
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                //finish(); //현재액티비티 파괴
                         } else {
                             Toast.makeText(LoginActivity.this , "로그인 실패", Toast.LENGTH_SHORT).show();
                         }
@@ -78,5 +97,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

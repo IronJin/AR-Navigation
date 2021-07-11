@@ -8,6 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< Updated upstream
+=======
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+>>>>>>> Stashed changes
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mFirebaseAuth; //Firebase 인증처리
     private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체
-    private EditText mEtEmail, mEtPwd; //회원가입 입력필드
+    private EditText mEtEmail, mEtPwd, PhoneNumber; //회원가입 입력필드
     private Button mBtnRegister; //회원가입 버튼
 
 
@@ -39,7 +45,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         mEtEmail = findViewById(R.id.et_email);
         mEtPwd = findViewById(R.id.et_pwd);
+        PhoneNumber = findViewById(R.id.phone_numberText);
         mBtnRegister = findViewById(R.id.btn_register);
+        spinner = (Spinner) findViewById(R.id.majorSpinner);
+        adapter = ArrayAdapter.createFromResource(this, R.array.major, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        RadioGroup rg = (RadioGroup)findViewById(R.id.genderGroup);
+
 
         //회원가입 버튼이 클릭될때의 옵션처리
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
@@ -47,9 +59,18 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String strEmail = mEtEmail.getText().toString();
                 String strPwd = mEtPwd.getText().toString();
+                String PhN = PhoneNumber.getText().toString();
+                String magor = spinner.getSelectedItem().toString();
+                int gender = rg.getCheckedRadioButtonId();
+                RadioButton rb = (RadioButton)findViewById(gender);
 
+<<<<<<< Updated upstream
                 if(strEmail.getBytes().length <=0 || strPwd.getBytes().length <=0){
                     Toast.makeText(RegisterActivity.this ,"가입정보를 입력하세요.", Toast.LENGTH_SHORT).show();
+=======
+                if(strEmail.getBytes().length <=0 || strPwd.getBytes().length <=0 || PhN.getBytes().length <=0){
+                    Toast.makeText(RegisterActivity.this ,R.string.sing_up_infoenter, Toast.LENGTH_SHORT).show();
+>>>>>>> Stashed changes
                 }else{
 
                 //FirebaseAuth 진행
@@ -63,6 +84,9 @@ public class RegisterActivity extends AppCompatActivity {
                             account.setIdToken(firebaseUser.getUid());
                             account.setEmailId(firebaseUser.getEmail());
                             account.setPassword(strPwd);
+                            account.setPhoneNumber(PhN);
+                            account.setMagor(magor);
+                            account.setGender(rb.getText().toString());
 
                             //setValue 는 database에 삽입하는 행위
                             mDatabaseRef.child("UserAccount").child(firebaseUser.getUid()).setValue(account);
