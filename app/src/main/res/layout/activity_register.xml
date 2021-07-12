@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="회원 가입"
+                android:text="@string/sing_up_sing_up"
                 android:textColor="#ffffff"
                 android:textSize="30dp"
                 android:textStyle="bold"
@@ -42,7 +42,7 @@
                 android:background="@color/colorPrimary1"
                 android:drawableStart="@drawable/ic_baseline_person_24"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
-                android:hint="이메일"
+                android:hint="@string/sing_up_email"
                 android:layout_gravity="center"
                 android:padding="10dp"
                 android:textColor="#ffffff"
@@ -52,7 +52,7 @@
                 android:inputType="textPassword"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:hint="비밀번호"
+                android:hint="@string/sing_up_password"
                 android:layout_gravity="center"
                 android:padding="10dp"
                 android:textColor="#ffffff"
@@ -67,7 +67,7 @@
 
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:hint="전화번호"
+                android:hint="@string/sing_up_pnum"
                android:layout_gravity="center"
                 android:padding="10dp"
                 android:textColor="#ffffff"
@@ -88,14 +88,14 @@
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="남성"
+                    android:text="@string/sing_up_man"
                     android:id="@+id/genderMan"
                     android:layout_weight="1"
                     android:checked="true"></RadioButton>
                 <RadioButton
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="여성"
+                    android:text="@string/sing_up_girl"
                     android:id="@+id/genderWoman"
                     android:layout_weight="1"
                     ></RadioButton>
@@ -117,7 +117,7 @@
                 android:textStyle="bold"
                 android:textColor="#ffffff"
                 android:background="@color/colorPrimaryDark1"
-                android:text="가입하기"
+                android:text="@string/sing_up_sing_up"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:id="@+id/btn_register"/>
