@@ -6,6 +6,22 @@
     <string name="user_location_permission_not_granted">Location Load Fail</string>
     <string name="new_location">New Location : </string>
 
+<<<<<<< Updated upstream
+=======
+
+    <!--회원가입 문자열-->
+    <string-array name="major">
+        <item>SW-Convergence University</item>
+        <item>College of Engineering</item>
+        <item>College of Business and Economics</item>
+        <item>College of Liberal Arts</item>
+        <item>law school</item>
+        <item>College of Social Sciences</item>
+        <item>College of Education</item>
+        <item>College of Music and Arts</item>
+    </string-array>
+
+>>>>>>> Stashed changes
     <!--메뉴 옵션 문자열 -->
     <string name="app_exit">Quit the app</string>
     <string name="setting">Setting</string>
@@ -41,16 +57,19 @@
     <string name="chinese">Chinese</string>
 
     <!--로그인 창 문자열-->
-    <string name="login_email">Please enter your email</string>
-    <string name="login_password">Please enter a password</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
     <string name="login">Login</string>
     <string name="longin_sing_up">Sing up</string>
     <string name="login_info">Please enter your login information</string>
     <string name="login_fail">Login failed</string>
 
     <!--회원가입 창 문자열-->
-    <string name="sing_up_email">Please enter your email</string>
-    <string name="sing_up_password">Please enter a password.(6 digits or more)</string>
+    <string name="sing_up_email">Email</string>
+    <string name="sing_up_password">Password.</string>
+    <string name="sing_up_pnum">Phone Number</string>
+    <string name="sing_up_man">Male</string>
+    <string name="sing_up_girl">Female</string>
     <string name="sing_up_sing_up">Sing up</string>
     <string name="sing_up_infoenter">Please enter your registration information.</string>
     <string name="sing_up_success">successfully registered as a member.</string>

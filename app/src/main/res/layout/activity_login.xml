@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+<<<<<<< Updated upstream
     <EditText
         android:id="@+id/et_email"
         android:layout_width="300dp"
@@ -52,4 +53,102 @@
         app:layout_constraintEnd_toEndOf="@+id/et_pwd"
         app:layout_constraintStart_toStartOf="@+id/et_pwd"
         app:layout_constraintTop_toBottomOf="@+id/et_pwd" />
+=======
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="225dp"
+           android:orientation="vertical"
+           android:background="@color/colorPrimary1">
+
+           <ImageView
+               android:layout_width="125dp"
+               android:layout_height="125dp"
+               android:layout_gravity="center"
+               android:layout_marginTop="20dp"
+               android:src="@drawable/logo"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:text="DK-GUIDE"
+               android:textColor="#ffffff"
+               android:textSize="25dp"
+               android:textStyle="bold"
+               android:layout_marginTop="10dp"/>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:text="made by 컴갤"
+               android:textColor="#ffffff"
+               android:textSize="10dp"
+               android:textStyle="bold"/>
+
+         </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+           <EditText
+               android:id="@+id/et_email"
+               android:layout_width="280dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="50dp"
+               android:background="@color/colorPrimary1"
+               android:drawableStart="@drawable/ic_baseline_person_24"
+               android:drawableLeft="@drawable/ic_baseline_person_24"
+               android:hint="@string/login_email"
+               android:layout_gravity="center"
+               android:padding="10dp"
+               android:textColor="#ffffff"
+               android:textColorHint="#ffffff" />
+
+           <EditText
+               android:inputType="textPassword"
+               android:layout_width="280dp"
+               android:layout_height="wrap_content"
+               android:hint="@string/login_password"
+               android:layout_gravity="center"
+               android:padding="10dp"
+               android:textColor="#ffffff"
+               android:textColorHint="#ffffff"
+               android:id="@+id/et_pwd"
+               android:drawableStart="@drawable/ic_baseline_lock_24"
+               android:drawableLeft="@drawable/ic_baseline_lock_24"
+               android:layout_marginTop="10dp"
+               android:background="@color/colorPrimary1"
+               />
+           <Button
+               android:id="@+id/btn_login"
+               android:layout_width="280dp"
+               android:layout_height="wrap_content"
+               android:textSize="20dp"
+               android:textStyle="bold"
+               android:textColor="#ffffff"
+               android:background="@color/colorPrimaryDark1"
+               android:text="@string/login"
+               android:layout_marginTop="10dp"
+               android:layout_gravity="center"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:textSize="18dp"
+               android:layout_marginTop="10dp"
+               android:text="@string/longin_sing_up"
+               android:id="@+id/registerButton"/>
+
+       </LinearLayout>
+
+   </LinearLayout>
+>>>>>>> Stashed changes
 </androidx.constraintlayout.widget.ConstraintLayout>

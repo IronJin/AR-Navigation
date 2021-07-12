@@ -5,6 +5,21 @@
     <string name="user_location_permission_not_granted">위치권한실패 종료함</string>
     <string name="new_location">새로운 위치 : </string>
 
+<<<<<<< Updated upstream
+=======
+    <!--회원가입 문자열-->
+    <string-array name="major">
+        <item>SW-융합대학</item>
+        <item>공과대학</item>
+        <item>경영경제대학</item>
+        <item>문과대학</item>
+        <item>법과대학</item>
+        <item>사회과학대학</item>
+        <item>사범대학</item>
+        <item>음악예술대학</item>
+    </string-array>
+
+>>>>>>> Stashed changes
     <!--메뉴 옵션 문자열 -->
     <string name="app_exit">앱 종료</string>
     <string name="setting">환경설정</string>
@@ -40,16 +55,19 @@
     <string name="chinese">중국어</string>
 
     <!--로그인 창 문자열-->
-    <string name="login_email">이메일을 입력하세요</string>
-    <string name="login_password">비밀번호를 입력하세요</string>
+    <string name="login_email">이메일</string>
+    <string name="login_password">비밀번호</string>
     <string name="login">로그인</string>
     <string name="longin_sing_up">회원가입</string>
     <string name="login_info">로그인 정보를 입력하세요</string>
     <string name="login_fail">로그인 실패</string>
 
     <!--회원가입 창 문자열-->
-    <string name="sing_up_email">이메일을 입력하세요</string>
-    <string name="sing_up_password">비밀번호를 입력하세요.(6자리 이상)</string>
+    <string name="sing_up_email">이메일</string>
+    <string name="sing_up_password">비밀번호</string>
+    <string name="sing_up_pnum">전화번호</string>
+    <string name="sing_up_man">남성</string>
+    <string name="sing_up_girl">여성</string>
     <string name="sing_up_sing_up">회원가입</string>
     <string name="sing_up_infoenter">가입정보를 입력하세요.</string>
     <string name="sing_up_success">회원가입에 성공하셨습니다.</string>
