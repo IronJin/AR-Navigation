@@ -49,7 +49,7 @@ Firebase 를 이용하여 이메일 회원가입 & 로그인 기능 구현
 
 ### 2. 회원가입 화면 구성
 1. RegisterActivity 라는 이름의 empty activity 를 생성해준 후 activity_register.xml 에서이메일과 비밀번호를 입력할 수 있는 EditText 와 가입자 정보를 데이터베이스에 전달해주는 '가입하기' 버튼을 화면에 추가해준다.
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"  
   xmlns:app="http://schemas.android.com/apk/res-auto"  
@@ -93,7 +93,7 @@ Firebase 를 이용하여 이메일 회원가입 & 로그인 기능 구현
 
 2. RegisterActivity 에서 회원가입과 관련한 Firebase 인증처리 서버에 연동시켜줄 수 있는 객체 회원가입 버튼이 클릭될 때의 옵션처리 등의 코드를 다음과 같이 추가해준다.
 회원가입에 성공할 시 로그인 화면으로 넘어가도록 설정되었다.
-```
+```java
   
 private FirebaseAuth mFirebaseAuth; //Firebase 인증처리  
 private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체  
@@ -117,7 +117,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 3.  회원가입 버튼 클릭 시 이벤트 처리를 위한 메소드를 onCreate 메소드에 추가해준다.
-```
+```java
 //회원가입 버튼이 클릭될때의 옵션처리  
 mBtnRegister.setOnClickListener(new View.OnClickListener() {  
     @Override  
@@ -160,7 +160,7 @@ mBtnRegister.setOnClickListener(new View.OnClickListener() {
 
 ### 3. 로그인 화면 구성
 1. LoginActivity 라는 이름의 empty activity 를 생성해준 후 activity_login.xml 에서 이메일과 비밀번호를 입력할 수 있는 EditText 와 로그인 버튼과 회원가입 화면으로 넘겨주는 버튼을 구현해준다. 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"  
   xmlns:app="http://schemas.android.com/apk/res-auto"  
@@ -215,7 +215,7 @@ mBtnRegister.setOnClickListener(new View.OnClickListener() {
 ```
 
 2. LoginActivity 에 로그인과 관련한 Firebase 인증처리, 로그인 버튼 클릭시 MainActivity 화면으로 넘겨주는 옵션 처리와 회원가입 버튼 클릭 시 회원가입 화면으로 넘겨주는 옵션 처리 등의 코드를 추가해준다.
-```
+```java
   
     private FirebaseAuth mFirebaseAuth; //Firebase 인증처리  
   private DatabaseReference mDatabaseRef; //실시간 데이터베이스 -> 서버에 연동시킬수있는 객체  
@@ -279,7 +279,7 @@ mBtnRegister.setOnClickListener(new View.OnClickListener() {
 ```
 
 3. 로그인 완료 후 뒤로가기 버튼을 눌렀을 때 다시 로그인 화면으로 넘어가는 것을 막아주기 위해 MainActivity 에 다음과 같은 코드를 추가하여 준다.
-```
+```java
 //뒤로가기 버튼을 막아서 로그인 화면으로 넘어가는 오류를 해결  
 @Override  
 public void onBackPressed(){  
@@ -287,7 +287,7 @@ public void onBackPressed(){
 }
 ```
 4. 앱 실행시 LoginActivity 가 가장 먼저 실행되도록 하여 로그인 화면이 가장 먼저 화면에 띄워지도록 설정하기 위해 manifests 의 intent-filter 를 다음과 같이 LoginActivity 앞으로 연결시켜준다.
-```
+```xml
 <activity android:name=".LoginActivity"  
   android:theme="@style/Theme.AppCompat">  
  <intent-filter> <action android:name="android.intent.action.MAIN" />  
@@ -299,14 +299,14 @@ public void onBackPressed(){
 5. MainActivity 화면의 옵션메뉴에서 로그아웃 버튼 클릭 시 로그인 화면으로 되돌아 가게 해주기 위해 menuoptions.xml 과 MainActivity 에 다음과 같이 코드를 추가해준다.
 
 ##### menuoptions.xml
-```
+```xml
 <item  
   android:title="로그아웃"  
   android:id="@+id/logout"/>
 ```
 
 ##### MainActivity
-```
+```java
   
 //앱 상태바 메뉴를 메인이벤트에 연동시켜주는 메소드  
 public boolean onCreateOptionsMenu(Menu menu){  
@@ -331,7 +331,7 @@ public boolean onOptionsItemSelected(MenuItem item){
 
 ### 4. 사용자 정보 모델 클래스 
 1. UserAccount 라는 이름의 사용자 계정 정보를 가져오는 클래스 생성 후 getter 와 setter 를 이용하여 다음과 같이 코드를 작성한다.
-```
+```java
 package com.example.mapbox;  
   
 // 회원가입 사용자 계정 정보 모델 클래스  
@@ -400,17 +400,17 @@ maven { url 'https://mapbox.bintray.com/mapbox' }
 ```
 
 5. string.xml 에 복사한 access 토큰을 붙여넣는다.
-```
+```xml
 <string name="mapbox_access_token" translatable="false">MAMBOX_ACCESS_TOKEN</string>
 ```
 
 6. Manifest.xml 에 맵박스 관련 권한을 추가해주기 위해서 다음을 추가해준다.
-```
+```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
 7. 애플리케이션이 초기화 될 때 사용될 지도 스타일을 포함하여 MapView 의 속성과 네비게이션 스타트 버튼을 추가해주기 위해 activity_main.xml 에 다음을 추가해준다.
-```
+```xml
 <com.mapbox.mapboxsdk.maps.MapView  
   android:id="@+id/mapView"  
   android:layout_width="match_parent"  
@@ -436,7 +436,7 @@ maven { url 'https://mapbox.bintray.com/mapbox' }
   ```
 
 8.  맵박스 지도를 사용하기 위해 MainActivity 에 다음을 추가해준다.
-```
+```java
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -524,7 +524,7 @@ getRoute 는 사용자의 위치와 목적지 사이의 좌표를 구해주는 �
 아래는 도보 전용 길찾기 메소드이다. 차량용 길찾기로 설정을 바꾸려면
 .profile(DirectionsCriteria.PROFILE_WALKING) 이 부분을 지워주거나 주석처리한다.
 
-```
+```java
 //내 위치와 목적지 사이의 루트를 구해주는 함수  
 //현재 도보 길찾기로 설정해놓은거임  
 private void getRoute(Point origin, Point destination) {  
@@ -573,7 +573,7 @@ MAPBOX 튜토리얼은 맵에 클릭한 곳의 좌표를 목적지로 받아오�
 
 2. 각 건물에 얻어온 좌표를 각각 직접 입력으로 넣어준다. 각 if 문에는 건물에 해당하는 좌표값을 destinationPoint 로 전달을 하였고 getRoute 메소드를 활용하여 사용자의 위치를 나타내는 originPoint 와 destinationPoint 사이의 도보경로를 구해준다.
 아래 코드는 단국대학교 죽전캠퍼스의 건물 중심으로 코딩을 한것이다.
-```
+```java
 //button1 은 목적지설정 버튼  
 button1.setOnClickListener(new View.OnClickListener() {  
     @Override  
@@ -832,7 +832,7 @@ button1.setOnClickListener(new View.OnClickListener() {
 GPS 를 활용하여 나의 위치를 맵에 표시해주고 originPoint 에 내 현재 위치의 위도, 경도 값을 전달해주는 방식을 이용하였다. 
 
 1.  사용자의 위치를 지도에 표시 하기 위한 메소드
-```
+```java
 //User 의 위치를 나타내주는 메소드  
 @SuppressWarnings( {"MissingPermission"})  
 private void enableLocationComponent(@NonNull Style loadedMapStyle) {  
@@ -891,7 +891,7 @@ public void onPermissionResult(boolean granted) {
 
 2. 사용자의 현재위치 위도, 경도값을 originPoint 에 전달해주는  변수 Lo, La 에 넣어주기 위한 클래스
 Lo, La 에는 사용자의 위도, 경도 값이 각각 들어가 있다.
-```
+```java
 class MainActivityLocationCallback implements LocationEngineCallback<LocationEngineResult> {  
     private final WeakReference<MainActivity> activityWeakReference;  
   MainActivityLocationCallback(MainActivity activity) {  
@@ -935,7 +935,7 @@ class MainActivityLocationCallback implements LocationEngineCallback<LocationEng
 ```
 
 3. onstyleLoaded 메소드에 다음을 추가하여 맵이 로드되면 사용자의 위치가 맵에 표시되도록 한다.
-```
+```java
 enableLocationComponent(style);
 ```
 
@@ -949,7 +949,7 @@ enableLocationComponent(style);
 각 국가에 맞는 Language를 선택하여 파일을 생성한다.
 
  2. 각 strings 파일에 해당 어플리케이션에서 사용되는 문자열들을 동일한 형식으로 저장한다.
-```
+```xml
 <resources>
     <string name="app_name">DK GUIDE</string>
     <string name="user_location_permission_explanation">위치권한주세요</string>
@@ -957,7 +957,7 @@ enableLocationComponent(style);
     <string name="new_location">새로운 위치 : </string>
 </resources>
 ```
-```
+```xml
 <resources>
     <string name="app_name">DK GUIDE</string>
     <string name="user_location_permission_explanation">Give me Location</string>
@@ -965,7 +965,7 @@ enableLocationComponent(style);
     <string name="new_location">New Location : </string>
 </resources>
 ```
-```
+```xml
 <resources>
     <string name="app_name">DK GUIDE</string>
     <string name="user_location_permission_explanation">请给我位置权限</string>
@@ -977,7 +977,7 @@ enableLocationComponent(style);
 만든 파일의 이름은 preference로 지정한다. (파일명은 아무거나 해도 된다.)
 
 해당 xml파일은 환경설정을 들어갔을 경우 핸드폰 화면에 띄어질 화면으로 기본 형식은 아래를 따른다.
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -1009,14 +1009,14 @@ preferencescreen에서 사용되는 여러 태그들은 많은 자료들이 있�
 
 4. 안드로이드에서 제공하는 옵션 메뉴를 활용하여 환경설정을 구성할 계획임으로 res파일에 menuoptions파일을생성한다.
 해당 파일에서 
-```
+```xml
 <item android:title="@string/setting"
         android:id="@+id/menu1"/>
 ```
 해당 코드를 추가하여 string파일에 setting이름으로 지정되어 있는 문자열을 클릭시 menu1의 아이디가 반환되게 한다.
 
 5. 환경설정에서 사용할 activity를 만들기 위해서 res/layout에 새 파일을 만든 후
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -1044,7 +1044,7 @@ PreferencesActivity에 AppCompatActivity를 상속 한다.
 onCreateOptionsMenu를 활용하여 앱 상태바 메뉴를 메인 이벤트에 연동 시켜준다.
 그 후 onOptionsItemSelected 메서드를 활용하여 이전에 생성했던 메뉴 id가 선택될 시
 우리가 만들었던 환경설정 창으로 넘어가는 코드를 작성한다.
-```
+```java
  public boolean onOptionsItemSelected(MenuItem item){
 
         switch (item.getItemId()){
@@ -1058,7 +1058,7 @@ onCreateOptionsMenu를 활용하여 앱 상태바 메뉴를 메인 이벤트에 
 
 또한 언어 설정에 필요한 locale과 config변수를 선언해 준다. 이 때 정적으로 생성하여,
 이 후 MySettingFragment에서 활용할 수 있도록 선언해 준다.
-```
+```java
 static public String locale;
 static public Configuration config;
 Intent intent;
@@ -1069,7 +1069,7 @@ Intent intent;
 decreat가 발생하여 PreferenceFragmentCompat을사용한다.
 
 이후 아래 코드들을 작성해 준다.
-```
+```java
 Activity activity;                      //생명주기 설정을 위한 Activty 변수
     static public SharedPreferences prefs;  //모든 환경변수 공유 변수
 
