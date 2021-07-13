@@ -15,7 +15,7 @@
         <item>사회과학대학</item>
         <item>사범대학</item>
         <item>음악예술대학</item>
-
+        <item>외부인</item>
     </string-array>
 
 
@@ -54,20 +54,24 @@
     <string name="chinese">중국어</string>
 
     <!--로그인 창 문자열-->
-    <string name="login_email">이메일을 입력하세요</string>
-    <string name="login_password">비밀번호를 입력하세요</string>
+    <string name="login_email">이메일</string>
+    <string name="login_password">비밀번호</string>
     <string name="login">로그인</string>
     <string name="longin_sing_up">회원가입</string>
     <string name="login_info">로그인 정보를 입력하세요</string>
     <string name="login_fail">로그인 실패</string>
 
     <!--회원가입 창 문자열-->
-    <string name="sing_up_email">이메일을 입력하세요</string>
-    <string name="sing_up_password">비밀번호를 입력하세요.(6자리 이상)</string>
+    <string name="sing_up_email">이메일</string>
+    <string name="sing_up_password">비밀번호</string>
+    <string name="sing_up_pnum">휴대전화</string>
+    <string name="sing_up_man">남성</string>
+    <string name="sing_up_girl">여성</string>
     <string name="sing_up_sing_up">회원가입</string>
     <string name="sing_up_infoenter">가입정보를 입력하세요.</string>
     <string name="sing_up_success">회원가입에 성공하셨습니다.</string>
     <string name="sing_up_fail">회원가입에 실패하셨습니다.</string>
+
 
     <!--목적지 설정 문자열열-->
     <string name="destination_setting">목적지 설정</string>
