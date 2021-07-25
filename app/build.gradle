@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mapbox"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -44,6 +44,10 @@ dependencies {
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.1'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.42.6'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation:0.42.6'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-core:3.1.1'
+    implementation 'com.mapbox.vision:mapbox-android-vision:0.13.0'
+    implementation 'com.mapbox.vision:mapbox-android-vision-ar:0.13.0'
+    implementation 'com.mapbox.vision:mapbox-android-vision-safety:0.13.0'
 
 
 }

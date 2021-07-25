@@ -4,8 +4,16 @@
     package="com.example.mapbox">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
+        android:name=".VisionApp"
         android:allowBackup="true"
         android:appComponentFactory="whateverString"
         android:icon="@mipmap/ic_launcher"
@@ -22,12 +30,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< Updated upstream
         <activity android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat">
         </activity>
+=======
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".MapPage"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".PreferencesActivity"
+            android:theme="@style/Theme.AppCompat" />
+>>>>>>> Stashed changes
     </application>
 
 </manifest>

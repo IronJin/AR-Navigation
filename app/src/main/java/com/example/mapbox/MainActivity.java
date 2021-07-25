@@ -6,14 +6,53 @@
 //양철진
 
 package com.example.mapbox;
+//ar
 
+import com.mapbox.api.directions.v5.models.LegStep;
+import com.mapbox.api.directions.v5.models.RouteLeg;
+import com.mapbox.core.constants.Constants;
+import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.utils.PolylineUtils;
+import com.mapbox.services.android.navigation.v5.navigation.MapboxNavigationOptions;
+import com.mapbox.vision.ar.FenceVisualParams;
+import com.mapbox.vision.ar.LaneVisualParams;
+import com.mapbox.vision.ar.VisionArManager;
+import com.mapbox.vision.ar.core.models.Color;
+import com.mapbox.vision.ar.core.models.ManeuverType;
+import com.mapbox.vision.ar.core.models.Route;
+import com.mapbox.vision.ar.core.models.RoutePoint;
+import com.mapbox.vision.mobile.core.models.position.GeoCoordinate;
+import com.mapbox.vision.performance.ModelPerformance.On;
+import com.google.firebase.database.core.operation.Merge;
+
+import com.mapbox.vision.mobile.core.interfaces.VisionEventsListener;
+import com.mapbox.vision.mobile.core.models.AuthorizationStatus;
+import com.mapbox.vision.mobile.core.models.Camera;
+import com.mapbox.vision.mobile.core.models.Country;
+import com.mapbox.vision.mobile.core.models.FrameSegmentation;
+import com.mapbox.vision.mobile.core.models.classification.FrameSignClassifications;
+import com.mapbox.vision.mobile.core.models.detection.FrameDetections;
+import com.mapbox.vision.mobile.core.models.position.VehicleState;
+import com.mapbox.vision.mobile.core.models.road.RoadDescription;
+import com.mapbox.vision.mobile.core.models.world.WorldDescription;
+import com.mapbox.vision.performance.*;
+
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+<<<<<<< Updated upstream
+=======
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+>>>>>>> Stashed changes
 import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
+<<<<<<< Updated upstream
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -22,6 +61,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.DisplayMetrics;
+=======
+import android.os.Looper;
+import android.util.Log;
+>>>>>>> Stashed changes
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,7 +72,19 @@ import android.view.SubMenu;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+<<<<<<< Updated upstream
 // classes needed to initialize map
+=======
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+>>>>>>> Stashed changes
 import com.google.firebase.auth.FirebaseAuth;
 import com.mapbox.android.core.location.LocationEngine;
 import com.mapbox.android.core.location.LocationEngineCallback;
@@ -69,9 +124,28 @@ import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
 // classes to calculate a route
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions;
 import com.mapbox.services.android.navigation.ui.v5.route.NavigationMapRoute;
+import com.mapbox.services.android.navigation.v5.navigation.MapboxNavigation;
 import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute;
+<<<<<<< Updated upstream
 import com.mapbox.api.directions.v5.models.DirectionsResponse;
 import com.mapbox.api.directions.v5.models.DirectionsRoute;
+=======
+import com.mapbox.services.android.navigation.v5.offroute.OffRouteListener;
+import com.mapbox.services.android.navigation.v5.route.RouteFetcher;
+import com.mapbox.services.android.navigation.v5.route.RouteListener;
+import com.mapbox.services.android.navigation.v5.routeprogress.ProgressChangeListener;
+import com.mapbox.services.android.navigation.v5.routeprogress.RouteProgress;
+import com.mapbox.vision.VisionManager;
+import com.mapbox.vision.ar.view.gl.VisionArView;
+import com.mapbox.vision.utils.VisionLogger;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+
+>>>>>>> Stashed changes
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -85,11 +159,21 @@ import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconAllowOverlap;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconIgnorePlacement;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconImage;
+<<<<<<< Updated upstream
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconOffset;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineCap;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineColor;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineJoin;
 import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.lineWidth;
+=======
+import static com.mapbox.mapboxsdk.style.layers.PropertyFactory.iconKeepUpright;
+
+// classes needed to initialize map
+// classes needed to add the location component
+// classes needed to add a marker
+// classes to calculate a route
+// classes needed to launch navigation UI
+>>>>>>> Stashed changes
 
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, MapboxMap.OnMapClickListener, PermissionsListener {
@@ -99,6 +183,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String ICON_LAYER_ID = "icon-layer-id";
     private static final String ICON_SOURCE_ID = "icon-source-id";
     private static final String RED_PIN_ICON_ID = "red-pin-icon-id";
+
+
+
+
+
 
     //firebase 관련
     private FirebaseAuth mFirebaseAuth;
@@ -111,12 +200,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LocationComponent locationComponent;
     // variables for calculating and drawing a route
     private DirectionsRoute currentRoute;
-    private static final String TAG = "DirectionsActivity";
+    private static final String TAG = MainActivity.class.getSimpleName();
     private NavigationMapRoute navigationMapRoute;
     // variables needed to initialize navigation
 
     //2d 네비게이션 버튼
     private Button button;
+    private Button ArButton;
 
     //목적지 설정 버튼
     private Button button1;
@@ -141,8 +231,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private long DEFAULT_MAX_WAIT_TIME = DEFAULT_INTERVAL_IN_MILLISECONDS * 5;
 
     // Variables needed to listen to location updates
-    private MainActivityLocationCallback callback = new MainActivityLocationCallback(this);
+    MainActivityLocationCallback callback = new MainActivityLocationCallback(this);
 
+
+<<<<<<< Updated upstream
+=======
+    //언어설정 변수
+    static public String locale;
+    Intent intent;
+    static public Configuration config;
+
+    //환경설정 필요 변수
+    SharedPreferences sharedPreferences;
+    ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+            });
+
+    public MainActivity() {
+    }
+
+>>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +261,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapView.getMapAsync(this);
 
     }
+
 
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
@@ -165,13 +274,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 enableLocationComponent(style);
 
 
-                //addDestinationIconSymbolLayer(style);
-                //mapboxMap.addOnMapClickListener(MainActivity.this);
+                addDestinationIconSymbolLayer(style);
+                mapboxMap.addOnMapClickListener(MainActivity.this);
 
                 //start navigation 버튼 구현
                 //button id 이용해서 메인액티비티에 띄우는 것
                 button = findViewById(R.id.startButton);
-
+                ArButton = findViewById(R.id.arbutton);
                 //activity_main 에서 구현한 버튼을 MainActivity 와 버튼 id 를 이용해 연동시켜줌
                 //목적지 설정 버튼임
                 button1 = findViewById(R.id.destination);
@@ -193,6 +302,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 });
 
+                ArButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(MainActivity.this, MapPage.class);
+                        startActivity(intent);
+                    }
+                });
+
+
                 //button1 은 목적지설정 버튼
                 button1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -208,6 +327,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //제 2공학관
@@ -216,6 +336,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //제 3공학관
@@ -224,6 +345,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //사회과학관
@@ -232,6 +354,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //소프트웨어 ICT관
@@ -240,6 +363,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //미디어센터
@@ -248,6 +372,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //범정관
@@ -256,6 +381,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //인문관
@@ -264,6 +390,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //상경관
@@ -272,6 +399,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //사범관
@@ -280,6 +408,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //혜당관
@@ -288,6 +417,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //퇴계기념중앙도서관
@@ -296,6 +426,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //법학관, 대학원동
@@ -304,6 +435,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //국제관
@@ -312,6 +444,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //종합실험동
@@ -320,6 +453,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //곰상
@@ -328,6 +462,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //정문
@@ -336,6 +471,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -345,6 +481,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //대운동장
@@ -353,6 +490,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -362,6 +500,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -371,6 +510,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -380,6 +520,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -389,6 +530,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -398,6 +540,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -407,6 +550,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -416,6 +560,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -425,6 +570,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -434,6 +580,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     originPoint = Point.fromLngLat(Lo,La);
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
+                                    ArButton.setEnabled(true);
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //리턴 값은 true, false 든 크게 상관없는 것 같음, 개발자도 잘 모르겠음
@@ -475,7 +622,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMapClick(@NonNull LatLng point) {
 
-        /*
+
         //클릭한 곳의 좌표
         destinationPoint = Point.fromLngLat(point.getLongitude(), point.getLatitude());
 
@@ -492,7 +639,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         button.setEnabled(true);
         button.setBackgroundResource(R.color.mapboxBlue);
-        */
+        ArButton.setEnabled(true);
+        ArButton.setBackgroundResource(R.color.mapbox_blue);
+
         return false;
     }
 
@@ -583,11 +732,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         permissionsManager.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    //완료
     @Override
     public void onExplanationNeeded(List<String> permissionsToExplain) {
         Toast.makeText(this, R.string.user_location_permission_explanation, Toast.LENGTH_LONG).show();
     }
 
+    //완료
     @Override
     public void onPermissionResult(boolean granted) {
         if (granted) {
@@ -689,6 +840,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onStart() {
         super.onStart();
         mapView.onStart();
+        mapView.getMapAsync(this);
     }
 
     @Override
@@ -731,4 +883,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onLowMemory();
         mapView.onLowMemory();
     }
+
+
 }

@@ -36,5 +36,14 @@
       <option name="name" value="maven" />
       <option name="url" value="https://mapbox.bintray.com/mapbox" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://api.mapbox.com/downloads/v2/vision/android/maven" />
+    </remote-repository>
   </component>
 </project>
