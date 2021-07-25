@@ -216,9 +216,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public static double La;
 
     //내위치 Lo, La 를 이용해서 받아온 나의 위치
-    private Point originPoint;
+    public Point originPoint;
     //목적지 위치
-    private Point destinationPoint;
+    public Point destinationPoint;
 
 
     //목적지 위치 변수인 destinationPoint 의 좌표값을 위한 변수 설정
@@ -280,7 +280,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 //start navigation 버튼 구현
                 //button id 이용해서 메인액티비티에 띄우는 것
                 button = findViewById(R.id.startButton);
+<<<<<<< Updated upstream
                 ArButton = findViewById(R.id.arbutton);
+=======
+
+                ArButton = findViewById(R.id.arbutton);
+
+>>>>>>> Stashed changes
                 //activity_main 에서 구현한 버튼을 MainActivity 와 버튼 id 를 이용해 연동시켜줌
                 //목적지 설정 버튼임
                 button1 = findViewById(R.id.destination);
@@ -311,7 +317,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 });
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
                 //button1 은 목적지설정 버튼
                 button1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -328,6 +337,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //제 2공학관
@@ -337,6 +350,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //제 3공학관
@@ -346,6 +363,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //사회과학관
@@ -355,6 +376,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //소프트웨어 ICT관
@@ -364,6 +389,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //미디어센터
@@ -373,6 +402,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //범정관
@@ -382,6 +415,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //인문관
@@ -391,6 +428,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //상경관
@@ -400,6 +441,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //사범관
@@ -409,6 +454,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //혜당관
@@ -418,6 +467,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //퇴계기념중앙도서관
@@ -427,6 +480,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //법학관, 대학원동
@@ -436,6 +493,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //국제관
@@ -445,6 +506,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //종합실험동
@@ -454,6 +519,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //곰상
@@ -463,6 +532,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //정문
@@ -472,6 +545,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -482,6 +559,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //대운동장
@@ -491,6 +572,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -501,6 +586,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -511,6 +600,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -521,6 +614,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -531,6 +628,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -541,6 +642,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -551,6 +656,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -561,6 +670,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -571,6 +684,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
 
@@ -581,6 +698,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     getRoute(originPoint, destinationPoint);
                                     button.setEnabled(true);
                                     ArButton.setEnabled(true);
+<<<<<<< Updated upstream
+=======
+                                    ArButton.setBackgroundResource(R.color.mapbox_blue);
+>>>>>>> Stashed changes
                                     button.setBackgroundResource(R.color.mapboxBlue);
                                 }
                                 //리턴 값은 true, false 든 크게 상관없는 것 같음, 개발자도 잘 모르겠음
@@ -641,7 +762,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         button.setBackgroundResource(R.color.mapboxBlue);
         ArButton.setEnabled(true);
         ArButton.setBackgroundResource(R.color.mapbox_blue);
+<<<<<<< Updated upstream
 
+=======
+        */
+>>>>>>> Stashed changes
         return false;
     }
 

@@ -39,11 +39,14 @@
     <remote-repository>
       <option name="id" value="maven2" />
       <option name="name" value="maven2" />
+<<<<<<< Updated upstream
       <option name="url" value="https://api.mapbox.com/downloads/v1/vision/android/maven" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="maven2" />
       <option name="name" value="maven2" />
+=======
+>>>>>>> Stashed changes
       <option name="url" value="https://api.mapbox.com/downloads/v2/vision/android/maven" />
     </remote-repository>
   </component>
