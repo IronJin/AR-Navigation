@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--목적지 설정 버튼 팝업 메뉴 설정-->
+    <item
+        android:id="@+id/action_menu1"
+        android:title="@string/College_of_Engineering_Building1"/>
+    <item
+        android:id="@+id/action_menu2"
+        android:title="@string/College_of_Engineering_Building2" />
+    <item
+        android:id="@+id/action_menu3"
+        android:title="@string/College_of_Engineering_Building3" />
+
+    <item
+        android:id="@+id/action_menu4"
+        android:title="@string/Social_Science_Hall" />
+
+    <item
+        android:id="@+id/action_menu5"
+        android:title="@string/Software_ICT_Hall" />
+
+    <item
+        android:id="@+id/action_menu6"
+        android:title="@string/Media_Center" />
+
+    <item
+        android:id="@+id/action_menu7"
+        android:title="@string/BumJeong_Hall" />
+
+    <item
+        android:id="@+id/action_menu8"
+        android:title="@string/Humanities_Hall" />
+
+    <item
+        android:id="@+id/action_menu9"
+        android:title="@string/Business_and_Economics_Hall" />
+
+    <item
+        android:id="@+id/action_menu10"
+        android:title="@string/Education_Hall" />
+
+    <item
+        android:id="@+id/action_menu11"
+        android:title="@string/Hyedang_Hall" />
+
+    <item
+        android:id="@+id/action_menu12"
+        android:title="@string/Toegye_Memorial_Central_Library" />
+
+    <item
+        android:id="@+id/action_menu13"
+        android:title="@string/Graduate_School" />
+
+    <item
+        android:id="@+id/action_menu14"
+        android:title="@string/International_Hall" />
+
+    <item
+        android:id="@+id/action_menu15"
+        android:title="@string/Laboratories" />
+
+    <item
+        android:id="@+id/action_menu16"
+        android:title="@string/Bear_Statue" />
+
+    <item
+        android:id="@+id/action_menu17"
+        android:title="@string/Main_Gate" />
+
+    <item
+        android:id="@+id/action_menu18"
+        android:title="@string/Gymnasium_Performing_Arts_Center" />
+
+    <item
+        android:id="@+id/action_menu19"
+        android:title="@string/Main_Stadium" />
+
+    <item
+        android:id="@+id/action_menu20"
+        android:title="@string/Performing_Arts_Hall" />
+
+    <item
+        android:id="@+id/action_menu21"
+        android:title="@string/Dormitory" />
+
+    <item
+        android:id="@+id/action_menu22"
+        android:title="@string/Woongbi_Hall" />
+
+    <item
+        android:id="@+id/action_menu23"
+        android:title="@string/Jiphyeonjae" />
+
+    <item
+        android:id="@+id/action_menu24"
+        android:title="@string/Jukjeon_Dental_Hospital" />
+
+    <item
+        android:id="@+id/action_menu25"
+        android:title="@string/Open_Ground" />
+
+    <item
+        android:id="@+id/action_menu26"
+        android:title="@string/Music_Hall" />
+
+    <item
+        android:id="@+id/action_menu27"
+        android:title="@string/Arts_Hall" />
+
+    <item
+        android:id="@+id/action_menu28"
+        android:title="@string/Waterfall_Park" />
+
+</menu>
