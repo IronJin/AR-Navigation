@@ -1,2 +1,3 @@
-configurations.maybeCreate("default")
-artifacts.add("default", file('mapbox-android-sdk-9.3.0.aar'))
+version https://git-lfs.github.com/spec/v1
+oid sha256:0e0df99845213d753b185b985e120505a836bb5e984296b57fb339c600a9bbfa
+size 100

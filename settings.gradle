@@ -1,2 +1,3 @@
-rootProject.name='My Application'
-include ':app', ':mapbox-android-sdk-9.3.0'
+version https://git-lfs.github.com/spec/v1
+oid sha256:f37556b7941aa4955c0c9176ee4b8f93bceb80caef50076c010268de1ea74419
+size 78
