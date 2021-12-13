@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+gradle filter=lfs diff=lfs merge=lfs -text
+gradlew.bat filter=lfs diff=lfs merge=lfs -text
+README.md filter=lfs diff=lfs merge=lfs -text
+app filter=lfs diff=lfs merge=lfs -text
+build.gradle filter=lfs diff=lfs merge=lfs -text
+local.properties filter=lfs diff=lfs merge=lfs -text
+mapbox-android-sdk-9.3.0 filter=lfs diff=lfs merge=lfs -text
+settings.gradle filter=lfs diff=lfs merge=lfs -text
+document filter=lfs diff=lfs merge=lfs -text
+gradle.properties filter=lfs diff=lfs merge=lfs -text
+gradlew filter=lfs diff=lfs merge=lfs -text
