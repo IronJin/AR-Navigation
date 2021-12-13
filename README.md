@@ -9,11 +9,7 @@
   * 맵박스 SDK 설치
   * getRoute 메소드
   * 목적지 설정 방법
-* 유니티
-  * 안드로이드 연동
-  * AR
- * 개선방안
-
+* 개선방안
 
 ---
 
@@ -938,9 +934,6 @@ class MainActivityLocationCallback implements LocationEngineCallback<LocationEng
 enableLocationComponent(style);
 ```
 ---
-# 유니티
-## 안드로이드와 연동
-## AR을 활용한 방향 표시
 ---
 #개선방안
 1. 회원정보를 웹 호스팅을 통해 관리하면 효율적으로 관리를 할 수 있을 것 같음.
