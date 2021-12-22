@@ -26,7 +26,8 @@ AR 애니메이션 캐릭터를 통해 음성으로 얻을 수 있다.
 맵박스에서 제공하는 튜토리얼을 중심으로 제작되었다.
 참고 : https://docs.mapbox.com/help/tutorials/android-navigation-sdk/
 
-단국대 2021 Echo+ 경진대회 
+단국대 2021 Echo+ 경진대회 우수상
+ 
 ---
 
 # 안드로이드 스튜디오
